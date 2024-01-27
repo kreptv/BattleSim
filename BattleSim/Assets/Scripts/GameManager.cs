@@ -36,6 +36,11 @@ public class GameManager : MonoBehaviour
     public CharacterScript[] Characters;
     public Sprite BlankSprite;
 
+
+    public int ActiveCharacter;
+    public int EnemyCharacter;
+    public int PlayerProgression = 0;
+
     // CHARACTER SELECT SCENE UI  //
     public TextMeshProUGUI CharacterNameCSS;
     public Image FullBodyPreviewCSS;
@@ -44,7 +49,12 @@ public class GameManager : MonoBehaviour
     // CHARACTER SELECT SCENE UI  //
 
     // BATTLE SCENE BUTTONS //
+    public Button AttackButton;
+    public Button DefendButton;
 
+    public Button Attack1Button;
+    public Button Attack2Button;
+    public Button Attack3Button;
     // BATTLE SCENE BUTTONS //
 
 
@@ -52,6 +62,10 @@ public class GameManager : MonoBehaviour
 
     public Image PlayerCharacterImage;
     public Image EnemyCharacterImage;
+
+    
+
+
 
     // BATTLE SCENE UI  //
 
@@ -77,7 +91,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 12; i++)
         {
             int j = i;
-            CharacterButtonsCSS[j].onClick.RemoveListener(delegate { CSSPreview(Characters[j]); });
+            CharacterButtonsCSS[j].onClick.RemoveListener(delegate { CSSPreview(Characters[j], j); });
 
         }
 
@@ -133,7 +147,7 @@ public class GameManager : MonoBehaviour
             int j = i;
             Characters[i] = CharacterButtonsCSS[i].gameObject.GetComponent<CharacterScript>();
 
-            CharacterButtonsCSS[j].onClick.AddListener(delegate { CSSPreview(Characters[j]); });
+            CharacterButtonsCSS[j].onClick.AddListener(delegate { CSSPreview(Characters[j], j); });
 
             if (Characters[i].isLocked) // character locked, so show lock image & disable button
             {
@@ -151,7 +165,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void CSSPreview(CharacterScript character)
+    public void CSSPreview(CharacterScript character, int index)
     {
 
         CharacterNameCSS.text = character.charName;
@@ -162,6 +176,8 @@ public class GameManager : MonoBehaviour
             "Element: " + character.element;
         FullBodyPreviewCSS.sprite = character.characterImage;
 
+        ActiveCharacter = index;
+
         GoButtonCSS.onClick.AddListener(OpenBattleScene);
 
 
@@ -170,16 +186,315 @@ public class GameManager : MonoBehaviour
     public void OpenBattleScene()
     {
         RemoveAllListeners();
-        //PlayerCharacterImage = ;
-        //EnemyCharacterImage = dfasd;
+        FindNextEnemy();
 
+        PlayerCharacterImage.sprite = Characters[ActiveCharacter].characterImage;
+        EnemyCharacterImage.sprite = Characters[EnemyCharacter].characterImage;
 
+        //
+        AttackButton.onClick.AddListener(OpenAttackMenu);
+        DefendButton.onClick.AddListener(UseDefend);
         //
 
         MenuCanvas.SetActive(false);
         CreditsCanvas.SetActive(false);
         CharacterSelectCanvas.SetActive(false);
         BattleCanvas.SetActive(true);
+    }
+
+    public void OpenAttackMenu()
+    {
+        RemoveAllListeners();
+
+        //
+        Attack1Button.onClick.AddListener(UseAttack1);
+        Attack2Button.onClick.AddListener(UseAttack2);
+        Attack3Button.onClick.AddListener(UseAttack3);
+        //
+
+        MenuCanvas.SetActive(false);
+        CreditsCanvas.SetActive(false);
+        CharacterSelectCanvas.SetActive(false);
+        BattleCanvas.SetActive(true);
+    }
+
+    public void UseAttack1()
+    {
+
+    }
+
+    public void UseAttack2()
+    {
+
+    }
+
+    public void UseAttack3()
+    {
+
+    }
+
+    public void UseDefend()
+    {
+
+    }
+
+
+    public void FindNextEnemy()
+    {
+        if (PlayerProgression == 0)
+        {
+            int myRand = UnityEngine.Random.Range(0, 2);
+            Debug.Log(myRand);
+
+            switch (ActiveCharacter)
+            {
+                case 0:
+                    if (myRand == 0)
+                    {
+                        EnemyCharacter = 1;
+                    }
+                    else if (myRand == 1)
+                    {
+                        EnemyCharacter = 2;
+                    }
+                    break;
+
+                case 1:
+                    if (myRand == 0)
+                    {
+                        EnemyCharacter = 0;
+                    }
+                    else if (myRand == 1)
+                    {
+                        EnemyCharacter = 2;
+                    }
+                    break;
+
+                case 2:
+                    if (myRand == 0)
+                    {
+                        EnemyCharacter = 0;
+                    }
+                    else if (myRand == 1)
+                    {
+                        EnemyCharacter = 1;
+                    }
+                    break;
+
+                default:
+                    myRand = UnityEngine.Random.Range(0, 3);
+                    EnemyCharacter = myRand;
+                    break;
+            }
+
+        }
+
+        if (PlayerProgression == 1)
+        {
+            int myRand = UnityEngine.Random.Range(0, 2);
+            Debug.Log(myRand);
+
+            switch (ActiveCharacter)
+            {
+                case 3:
+                    if (myRand == 0)
+                    {
+                        EnemyCharacter = 4;
+                    }
+                    else if (myRand == 1)
+                    {
+                        EnemyCharacter = 5;
+                    }
+                    break;
+
+                case 4:
+                    if (myRand == 0)
+                    {
+                        EnemyCharacter = 3;
+                    }
+                    else if (myRand == 1)
+                    {
+                        EnemyCharacter = 5;
+                    }
+                    break;
+
+                case 5:
+                    if (myRand == 0)
+                    {
+                        EnemyCharacter = 3;
+                    }
+                    else if (myRand == 1)
+                    {
+                        EnemyCharacter = 4;
+                    }
+                    break;
+
+                default:
+                    myRand = UnityEngine.Random.Range(0, 3);
+                    EnemyCharacter = myRand+3;
+                    break;
+            }
+
+        }
+
+        if (PlayerProgression == 2)
+        {
+            int myRand = UnityEngine.Random.Range(0, 2);
+            Debug.Log(myRand);
+
+            switch (ActiveCharacter)
+            {
+                case 6:
+                    if (myRand == 0)
+                    {
+                        EnemyCharacter = 7;
+                    }
+                    else if (myRand == 1)
+                    {
+                        EnemyCharacter = 8;
+                    }
+                    break;
+
+                case 7:
+                    if (myRand == 0)
+                    {
+                        EnemyCharacter = 6;
+                    }
+                    else if (myRand == 1)
+                    {
+                        EnemyCharacter = 8;
+                    }
+                    break;
+
+                case 8:
+                    if (myRand == 0)
+                    {
+                        EnemyCharacter = 6;
+                    }
+                    else if (myRand == 1)
+                    {
+                        EnemyCharacter = 7;
+                    }
+                    break;
+
+                default:
+                    myRand = UnityEngine.Random.Range(0, 3);
+                    EnemyCharacter = myRand + 6;
+                    break;
+            }
+
+        }
+
+        if (PlayerProgression == 3)
+        {
+            int myRand = UnityEngine.Random.Range(0, 2);
+            Debug.Log(myRand);
+
+            switch (ActiveCharacter)
+            {
+                case 9:
+                    if (myRand == 0)
+                    {
+                        EnemyCharacter = 10;
+                    }
+                    else if (myRand == 1)
+                    {
+                        EnemyCharacter = 11;
+                    }
+                    break;
+
+                case 10:
+                    if (myRand == 0)
+                    {
+                        EnemyCharacter = 9;
+                    }
+                    else if (myRand == 1)
+                    {
+                        EnemyCharacter = 11;
+                    }
+                    break;
+
+                case 11:
+                    if (myRand == 0)
+                    {
+                        EnemyCharacter = 9;
+                    }
+                    else if (myRand == 1)
+                    {
+                        EnemyCharacter = 10;
+                    }
+                    break;
+
+                default:
+                    myRand = UnityEngine.Random.Range(0, 3);
+                    EnemyCharacter = myRand + 9;
+                    break;
+            }
+
+        }
+
+        if (PlayerProgression == 4)
+        {
+            EnemyCharacter = 12; // Maurice
+
+        }
+
+
+
+
+
+
+
+
+    }
+
+    public void WinBattle()
+    {
+        // UNLOCK NEW CHARACTERS //
+
+        PlayerProgression++;
+
+        if (PlayerProgression == 0)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                Characters[i].isLocked = false;
+            }
+        }
+        else if (PlayerProgression == 1)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                Characters[i].isLocked = false;
+            }
+        }
+        else if (PlayerProgression == 2)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                Characters[i].isLocked = false;
+            }
+        }
+        else if (PlayerProgression == 3)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                Characters[i].isLocked = false;
+            }
+        }
+        else if (PlayerProgression == 4)
+        {
+            for (int i = 0; i < 12; i++)
+            {
+                Characters[i].isLocked = false;
+            }
+        }
+        // UNLOCK NEW CHARACTERS //
+
+
+
+
+
     }
 
 
