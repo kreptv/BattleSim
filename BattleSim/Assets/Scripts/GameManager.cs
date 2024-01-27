@@ -50,6 +50,10 @@ public class GameManager : MonoBehaviour
 
     // BATTLE SCENE UI  //
 
+    public Image PlayerCharacterImage;
+    public Image EnemyCharacterImage;
+
+    // BATTLE SCENE UI  //
 
 
     void Start()
@@ -166,6 +170,8 @@ public class GameManager : MonoBehaviour
     public void OpenBattleScene()
     {
         RemoveAllListeners();
+        //PlayerCharacterImage = ;
+        //EnemyCharacterImage = dfasd;
 
 
         //
