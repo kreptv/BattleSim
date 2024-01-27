@@ -1275,7 +1275,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 357857604}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1454130465}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &357857604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6141,8 +6153,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   BlankSprite: {fileID: 21300000, guid: fdb3157bb0a5a4363b22f9ccece26453, type: 3}
-  ActiveCharacter: 0
-  EnemyCharacter: 0
+  ActiveCharacter: {fileID: 0}
+  EnemyCharacter: {fileID: 0}
   PlayerProgression: 0
   CharacterNameCSS: {fileID: 362882273}
   FullBodyPreviewCSS: {fileID: 1909898455}
@@ -6153,6 +6165,12 @@ MonoBehaviour:
   Attack1Button: {fileID: 357857603}
   Attack2Button: {fileID: 949425363}
   Attack3Button: {fileID: 868659647}
+  Attack1NameText: {fileID: 328821208}
+  Attack2NameText: {fileID: 448447460}
+  Attack3NameText: {fileID: 1935351772}
+  Attack1DescriptionText: {fileID: 351049440}
+  Attack2DescriptionText: {fileID: 1381739571}
+  Attack3DescriptionText: {fileID: 1335722411}
   PlayerCharacterImage: {fileID: 1649708949}
   EnemyCharacterImage: {fileID: 1536377292}
   GeneralBattlePanel: {fileID: 84301314}
