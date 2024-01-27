@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CharacterScript : MonoBehaviour
 {
+    public CharacterSO charSO;
+
     public string charName;
     public string charDescription;
     public string element;
@@ -12,4 +14,6 @@ public class CharacterScript : MonoBehaviour
     public bool startsLocked, isLocked;
 	public int defaultATK, defaultDEF, defaultSPD;
     public int atk, def, spd;
+    
+    
 }
