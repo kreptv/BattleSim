@@ -179,13 +179,13 @@ public class GameManager : MonoBehaviour
     public void CSSPreview(CharacterScript character, int index)
     {
 
-        CharacterNameCSS.text = character.charName;
-        DescriptionTextCSS.text = character.charDescription;
+        CharacterNameCSS.text = character.charSO.characterName;
+        DescriptionTextCSS.text = character.charSO.characterDescription;
         StatsCSS.text = "ATK: " + character.atk + Environment.NewLine +
             "DEF: " + character.def + Environment.NewLine +
             "SPD: " + character.spd + Environment.NewLine +
-            "Element: " + character.element;
-        FullBodyPreviewCSS.sprite = character.characterImage;
+            "Element: " + character.charSO.characterType;
+        FullBodyPreviewCSS.sprite = character.charSO.characterSprite;
 
         ActiveCharacter = index;
 
@@ -197,8 +197,8 @@ public class GameManager : MonoBehaviour
     public void InitiateBattleScene()
     {
         FindNextEnemy();
-        PlayerCharacterImage.sprite = Characters[ActiveCharacter].characterImage;
-        EnemyCharacterImage.sprite = Characters[EnemyCharacter].characterImage;
+        PlayerCharacterImage.sprite = Characters[ActiveCharacter].charSO.characterSprite;
+        EnemyCharacterImage.sprite = Characters[EnemyCharacter].charSO.characterSprite;
         OpenBattleScene();
     }
 
@@ -241,53 +241,17 @@ public class GameManager : MonoBehaviour
         EmptyBattlePanel.SetActive(false);
     }
 
-    public void UseAttack1()
+    public void UseAttack(int index)
     {
         GeneralBattlePanel.SetActive(false);
         AttackBattlePanel.SetActive(false);
         EmptyBattlePanel.SetActive(true);
 
-        // Check player vs enemy speed for who goes first
-        // Player Attacks
-        // Enemy Attacks
+        BattleManager.Instance.PlayerSelectMove(index);
 
         // Check for enemy death
         // Check for player death
         OpenBattleScene();
-
-    }
-
-    public void UseAttack2()
-    {
-        GeneralBattlePanel.SetActive(false);
-        AttackBattlePanel.SetActive(false);
-        EmptyBattlePanel.SetActive(true);
-
-        // Check player vs enemy speed for who goes first
-        // Player Attacks
-        // Enemy Attacks
-
-        // Check for enemy death
-        // Check for player death
-        OpenBattleScene();
-
-    }
-
-    public void UseAttack3()
-    {
-        GeneralBattlePanel.SetActive(false);
-        AttackBattlePanel.SetActive(false);
-        EmptyBattlePanel.SetActive(true);
-
-        // Check player vs enemy speed for who goes first
-        // Player Attacks
-        // Enemy Attacks
-
-        // Check for enemy death
-        // Check for player death
-        OpenBattleScene();
-
-
 
     }
 

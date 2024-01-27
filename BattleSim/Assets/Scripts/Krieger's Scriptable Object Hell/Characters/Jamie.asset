@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1967b69ed0c0754295d81474dff4513, type: 3}
+  m_Name: Jamie
+  m_EditorClassIdentifier: 
+  characterName: Jamie
+  characterDescription: Jamie is a hyena. Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha
+    Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha
+    Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha
+    Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha
+    Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha. Hyena Joke
+  characterIcon: {fileID: 21300000, guid: 27c09fb10761d452ab1669f8145a571f, type: 3}
+  characterSprite: {fileID: 21300000, guid: 6c0121502615142cebfe697c1481eba9, type: 3}
+  characterType: {fileID: 11400000, guid: bf2c0370b2c4dac45b808b6307b9ce1c, type: 2}
+  startingLevel: 2
+  baseHealth: 20
+  baseAttack: 10
+  baseDefense: 10
+  baseSpeed: 10
+  healthGrowth: 4
+  attackGrowth: 2
+  defenseGrowth: 2
+  speedGrowth: 2
+  healthCap: 25
+  attackCap: 25
+  defenseCap: 25
+  speedCap: 25
+  startingMoves:
+  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
+  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
+  learnableMoves: []
