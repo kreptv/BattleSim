@@ -63,7 +63,11 @@ public class GameManager : MonoBehaviour
     public Image PlayerCharacterImage;
     public Image EnemyCharacterImage;
 
-    
+    public GameObject GeneralBattlePanel;
+    public GameObject AttackBattlePanel;
+    public GameObject EmptyBattlePanel;
+
+
 
 
 
@@ -101,6 +105,13 @@ public class GameManager : MonoBehaviour
         FullBodyPreviewCSS.sprite = BlankSprite;
 
         // battle scene
+
+        AttackButton.onClick.RemoveListener(OpenAttackMenu);
+        DefendButton.onClick.RemoveListener(UseDefend);
+
+        Attack1Button.onClick.RemoveListener(UseAttack1);
+        Attack2Button.onClick.RemoveListener(UseAttack2);
+        Attack3Button.onClick.RemoveListener(UseAttack3);
 
 
     }
@@ -178,18 +189,22 @@ public class GameManager : MonoBehaviour
 
         ActiveCharacter = index;
 
-        GoButtonCSS.onClick.AddListener(OpenBattleScene);
+        GoButtonCSS.onClick.AddListener(InitiateBattleScene);
 
 
+    }
+
+    public void InitiateBattleScene()
+    {
+        FindNextEnemy();
+        PlayerCharacterImage.sprite = Characters[ActiveCharacter].characterImage;
+        EnemyCharacterImage.sprite = Characters[EnemyCharacter].characterImage;
+        OpenBattleScene();
     }
 
     public void OpenBattleScene()
     {
         RemoveAllListeners();
-        FindNextEnemy();
-
-        PlayerCharacterImage.sprite = Characters[ActiveCharacter].characterImage;
-        EnemyCharacterImage.sprite = Characters[EnemyCharacter].characterImage;
 
         //
         AttackButton.onClick.AddListener(OpenAttackMenu);
@@ -200,6 +215,10 @@ public class GameManager : MonoBehaviour
         CreditsCanvas.SetActive(false);
         CharacterSelectCanvas.SetActive(false);
         BattleCanvas.SetActive(true);
+
+        GeneralBattlePanel.SetActive(true);
+        AttackBattlePanel.SetActive(false);
+        EmptyBattlePanel.SetActive(false);
     }
 
     public void OpenAttackMenu()
@@ -216,25 +235,74 @@ public class GameManager : MonoBehaviour
         CreditsCanvas.SetActive(false);
         CharacterSelectCanvas.SetActive(false);
         BattleCanvas.SetActive(true);
+
+        GeneralBattlePanel.SetActive(false);
+        AttackBattlePanel.SetActive(true);
+        EmptyBattlePanel.SetActive(false);
     }
 
     public void UseAttack1()
     {
+        GeneralBattlePanel.SetActive(false);
+        AttackBattlePanel.SetActive(false);
+        EmptyBattlePanel.SetActive(true);
+
+        // Check player vs enemy speed for who goes first
+        // Player Attacks
+        // Enemy Attacks
+
+        // Check for enemy death
+        // Check for player death
+        OpenBattleScene();
 
     }
 
     public void UseAttack2()
     {
+        GeneralBattlePanel.SetActive(false);
+        AttackBattlePanel.SetActive(false);
+        EmptyBattlePanel.SetActive(true);
+
+        // Check player vs enemy speed for who goes first
+        // Player Attacks
+        // Enemy Attacks
+
+        // Check for enemy death
+        // Check for player death
+        OpenBattleScene();
 
     }
 
     public void UseAttack3()
     {
+        GeneralBattlePanel.SetActive(false);
+        AttackBattlePanel.SetActive(false);
+        EmptyBattlePanel.SetActive(true);
+
+        // Check player vs enemy speed for who goes first
+        // Player Attacks
+        // Enemy Attacks
+
+        // Check for enemy death
+        // Check for player death
+        OpenBattleScene();
+
+
 
     }
 
     public void UseDefend()
     {
+        GeneralBattlePanel.SetActive(false);
+        AttackBattlePanel.SetActive(false);
+        EmptyBattlePanel.SetActive(true);
+
+        // Player Defends
+        // Enemy Attacks
+
+        // Check for enemy death
+        // Check for player death
+        OpenBattleScene();
 
     }
 

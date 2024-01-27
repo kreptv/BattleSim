@@ -235,6 +235,16 @@ PrefabInstance:
       propertyPath: characterImage
       value: 
       objectReference: {fileID: 21300000, guid: e2bb36107b0144f989adc556a5b72ebe, type: 3}
+    - target: {fileID: 4080178645634292849, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
+      propertyPath: charDescription
+      value: "A dragon known to not do much, Zero is pretty lazy. Despite having
+        the draconic abilities of flight, elemental breath, and magic - he does not
+        care about combat at all. Interestingly, Zero can do tasks at a very efficient
+        pace\u2026 as long as there is a more important task that he is not doing.
+        Zero loves to stay in his hoard of games, which is a huge mess. Toxic marker
+        ink is his favorite food, which he ate right before participating in this
+        game."
+      objectReference: {fileID: 0}
     - target: {fileID: 4880796583285937128, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
       propertyPath: m_Name
       value: Zero
@@ -271,7 +281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &84301315
 RectTransform:
   m_ObjectHideFlags: 0
@@ -707,6 +717,14 @@ PrefabInstance:
       propertyPath: characterImage
       value: 
       objectReference: {fileID: 21300000, guid: 6c0121502615142cebfe697c1481eba9, type: 3}
+    - target: {fileID: 4080178645634292849, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
+      propertyPath: charDescription
+      value: Jamie is a hyena. Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha
+        Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha
+        Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha
+        Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha
+        Ha Ha Ha Ha Ha Ha Ha Ha Ha Ha. Hyena Joke
+      objectReference: {fileID: 0}
     - target: {fileID: 4880796583285937128, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
       propertyPath: m_Name
       value: Jamie
@@ -1393,6 +1411,15 @@ PrefabInstance:
       propertyPath: characterImage
       value: 
       objectReference: {fileID: 21300000, guid: 092f1ae738c824760b07453c5e36f91d, type: 3}
+    - target: {fileID: 4080178645634292849, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
+      propertyPath: charDescription
+      value: "Skoryx, as the name implies, is an oryx. Don\u2019t know what that
+        is? Yeah, we didn\u2019t either. Turns out it\u2019s this antelope looking
+        thing. Anyways Skoryx is known to be a pretty dedicated artist, painting
+        great art pieces such as the Mona Lisa and Starry Night. Either that or he
+        plagiarized them. He does not appreciate it when people skewer food onto
+        his horns like a kebab. He does enjoy the free food afterwards, though."
+      objectReference: {fileID: 0}
     - target: {fileID: 4880796583285937128, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
       propertyPath: m_Name
       value: Skoryx
@@ -1784,6 +1811,81 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &629837994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 629837995}
+  - component: {fileID: 629837997}
+  - component: {fileID: 629837996}
+  m_Layer: 5
+  m_Name: Empty Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &629837995
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629837994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 856151802}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -125}
+  m_SizeDelta: {x: 0.000013828278, y: -250}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &629837996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629837994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &629837997
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629837994}
+  m_CullTransparentMesh: 1
 --- !u!1 &697554782
 GameObject:
   m_ObjectHideFlags: 0
@@ -2130,6 +2232,17 @@ PrefabInstance:
       propertyPath: characterImage
       value: 
       objectReference: {fileID: 21300000, guid: 0ce7aa7a076ef480f810ffd712852a29, type: 3}
+    - target: {fileID: 4080178645634292849, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
+      propertyPath: charDescription
+      value: "Hadrian is the epitome of dragon kind, that is, he\u2019s a walking
+        stereotype of his species. He lives in a cycle of sleeping, eating, and studying
+        in his cave \u2013 often to the terror of the nearby villages in the process.
+        Very young. not even 1000 years old, and he already has the vibes of an angry
+        grandfather kicking the local neighborhood younglings off of his yard for
+        daring to play a measly game of catch. Some centuries back a knight took
+        his eye in an attempt to be another St. George. That did not work out for
+        them well."
+      objectReference: {fileID: 0}
     - target: {fileID: 4880796583285937128, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
       propertyPath: m_Name
       value: Hadrian
@@ -2193,6 +2306,7 @@ RectTransform:
   m_Children:
   - {fileID: 1926976634}
   - {fileID: 84301315}
+  - {fileID: 629837995}
   - {fileID: 1505566171}
   m_Father: {fileID: 447478495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3191,6 +3305,15 @@ PrefabInstance:
       propertyPath: characterImage
       value: 
       objectReference: {fileID: 21300000, guid: 98fcc0fb879dd406f9e6ab399a7ca813, type: 3}
+    - target: {fileID: 4080178645634292849, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
+      propertyPath: charDescription
+      value: "Koda is a very tired little guy. Despite the only action they are known
+        to do is steal eggs from poor people, they get pretty tired. Usually he needs
+        to actually get told to sleep when he is tired, otherwise he will stay up
+        all night and crash at 2pm in the middle of a conversation. If gentle suggestion
+        doesn\u2019t work, whack him with a crowbar, and he will be up and fresh
+        in the morning!"
+      objectReference: {fileID: 0}
     - target: {fileID: 4880796583285937128, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
       propertyPath: m_Name
       value: Koda
@@ -3770,11 +3893,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 15.16
+  m_fontSizeBase: 15.16
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 1
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -4282,15 +4405,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Character Art, Level Design, & Programming  -- Krepta
+  m_text: 'Ari did some sick programming
+
+    Lilly did music
+
+    Krepta did UI
+    and character art
+
+    Nate crunched the battle calculations
+
+    Zero did character
+    descriptions & pixel animations
 
 
-
-
-
-
-    UTULSA
-    Furry Club'
+    (c) UTULSA Furry Club'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dbba5f78265df40ce8c3fcb5d0434a0a, type: 2}
   m_sharedMaterial: {fileID: -6691282605768980804, guid: dbba5f78265df40ce8c3fcb5d0434a0a, type: 2}
@@ -4700,6 +4828,9 @@ MonoBehaviour:
   Attack3Button: {fileID: 868659647}
   PlayerCharacterImage: {fileID: 1649708949}
   EnemyCharacterImage: {fileID: 1536377292}
+  GeneralBattlePanel: {fileID: 84301314}
+  AttackBattlePanel: {fileID: 1505566170}
+  EmptyBattlePanel: {fileID: 629837994}
 --- !u!1 &1505566170
 GameObject:
   m_ObjectHideFlags: 0
@@ -5013,7 +5144,12 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 4ab164bf0ea5e42f7886a5225152a5b7, type: 3}
     - target: {fileID: 4080178645634292849, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
       propertyPath: charDescription
-      value: 
+      value: "Messy, as you can probably guess, is pretty gross. His whole existence
+        can be summed up with one simple word: Trash. His home? Covered in it. His
+        diet? There\u2019s nothing healthy in there. Honestly, Messy could live in
+        a dumpster if he needed to. Despite his lack of cleanliness, he is a major
+        advocate for improvement of major health programs all across the world. We
+        don\u2019t know why this is."
       objectReference: {fileID: 0}
     - target: {fileID: 4880796583285937128, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
       propertyPath: m_Name
@@ -5608,7 +5744,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611815196}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -5838,6 +5974,17 @@ PrefabInstance:
       propertyPath: characterImage
       value: 
       objectReference: {fileID: 21300000, guid: 1f9c8d8cc36e54d78a6c38785f0e3777, type: 3}
+    - target: {fileID: 4080178645634292849, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
+      propertyPath: charDescription
+      value: "Son of a billionaire author, Felix has always had a comfortable life.
+        As such, he struggles to understand people don't just use money to fix their
+        problems. \u201CWhy do you need to plan to clean your house? Can\u2019t the
+        maid just do it?\u201D is a common type of sentence to hear from him. Combining
+        this with being a rather small snow fox, you would think he would get bullied
+        quite frequently, but Felix never attended school, and studied at home. Felix
+        is also quite introverted and shy, which made getting this info out of him
+        quite the challenge."
+      objectReference: {fileID: 0}
     - target: {fileID: 4880796583285937128, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
       propertyPath: m_Name
       value: Felix
@@ -6706,7 +6853,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 400, y: -60}
-  m_SizeDelta: {x: 605.1521, y: 282.4044}
+  m_SizeDelta: {x: 615, y: 285}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1857807551
 MonoBehaviour:
@@ -7444,6 +7591,18 @@ PrefabInstance:
       propertyPath: characterImage
       value: 
       objectReference: {fileID: 21300000, guid: d19b5b4d12b534c83880b4be7c36ec85, type: 3}
+    - target: {fileID: 4080178645634292849, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
+      propertyPath: charDescription
+      value: "Cosmos is a real star \u2013 or at least that\u2019s what he says.
+        Interestingly, he appears to be a half-lion half-tiger creature with two
+        tails, perhaps one from each half. Cosmos comes from the stars of space;
+        some believe his parents are constellations, some believe he\u2019s a magic
+        creation of earth, and others believe he\u2019s just a dedicated LARPer.
+        Being a liger, he is always the \"mane\" event in battle and really \"earns
+        his stripes.\" His favorite things include tinkering with technology, solving
+        puzzles, sushi, and telling dad jokes, such as that last line which he insisted
+        we include in his description. Sorry."
+      objectReference: {fileID: 0}
     - target: {fileID: 4880796583285937128, guid: 4015fc4bee2b2409b899794fc02fc5f6, type: 3}
       propertyPath: m_Name
       value: Cosmos
