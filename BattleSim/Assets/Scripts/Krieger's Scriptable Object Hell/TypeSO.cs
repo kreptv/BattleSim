@@ -7,6 +7,8 @@ public class TypeSO : ScriptableObject
 {
     public string typeName = "Basic";
 
+    public Color typeColor = Color.white;
+
     [Header("Offensive Matchups")]
     public List<TypeSO> strongAgainst = new List<TypeSO>();
     public List<TypeSO> weakAgainst = new List<TypeSO>();

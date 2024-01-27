@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements; 
+using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour 
 {
@@ -23,25 +23,31 @@ public class BattleManager : MonoBehaviour
 
     public float baseMoveDelayTime = 0.5f;
 
+    public Image playerHealthBar;
+    public Image opponentHealthBar;
+
     private MoveSO playerMove;
     private MoveSO opponentMove;
 
     [SerializeField]
     private CharacterScript player, opponent;
 
-    public void GenerateBattle(CharacterScript opp)
+    public void GenerateBattle(CharacterScript p, CharacterScript opp)
     {
+        player = p;
         opponent = opp;
 
-        // TODO: Make sure all this works with Haley's battle scene stuff
-    }
+        player.currentHP = player.hp;
+        opponent.currentHP = opp.hp;
 
-    public void GenerateBattle(CharacterSO opp)
-    {
-        CharacterScript oppScript = new CharacterScript();
-        oppScript.charSO = opp;
-        oppScript.InitializeCharacter();
-        GenerateBattle(oppScript);
+        player.atkBoost = 0;
+        player.defBoost = 0;
+        player.spdBoost = 0;
+        opponent.atkBoost = 0;
+        opponent.defBoost = 0;
+        opponent.spdBoost = 0;
+
+        // TODO: Make sure all this works with Haley's battle scene stuff
     }
 
     public void PlayerSelectMove(int moveIndex)
@@ -89,9 +95,27 @@ public class BattleManager : MonoBehaviour
         if (move.effects.Contains(MoveEffect.Damage))
         {
             float effectiveAttack = (float)user.atk * (1.0f + ((float)user.atkBoost / 3.0f));
-            int effectiveDefense = target.def * (1 + (target.defBoost / 3));
+            float effectiveDefense = target.def * (1 + (target.defBoost / 3));
+
+            if(move.type.strongAgainst.Contains(target.charSO.characterType))
+            {
+                effectiveAttack *= 2;
+            } 
+            else if (move.type.weakAgainst.Contains(target.charSO.characterType))
+            {
+                effectiveAttack /= 2;
+            }
+
+            Debug.Log("Effective attack: " +  effectiveAttack);
+
+            float damage = effectiveAttack + move.damagePower / 2f * (100f / (100f + effectiveDefense));
+
+            Debug.Log("Damage: " + damage + "\nEnemy HP: " + target.currentHP);
+
+            target.currentHP = Mathf.Max((int)target.currentHP - (int)damage, 0);
             // TODO: Play animations
 
+            SetHealthBars();
         }
 
         // TODO: calculate status
@@ -110,8 +134,6 @@ public class BattleManager : MonoBehaviour
 
             // TODO: Play animations
         }
-
-        
     }
 
     private void GameOver()
@@ -125,5 +147,12 @@ public class BattleManager : MonoBehaviour
         player.LevelUp();
 
         // TODO: Winning battle stuff
+    }
+
+    private void SetHealthBars()
+    {
+        playerHealthBar.fillAmount = (float)player.currentHP / (float)player.hp;
+        Debug.Log("Player health bar fill: " +  playerHealthBar.fillAmount + "\nPlayer health: " + player.currentHP + "/" + player.hp);
+        opponentHealthBar.fillAmount = (float)opponent.currentHP / (float)opponent.hp;
     }
 }
