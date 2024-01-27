@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,15 +22,24 @@ public class BattleManager : MonoBehaviour
     }
     #endregion
 
+    [Header("Koda is cringe for making me do this")]
+    public GameManager gameManager;
+
+    [Header("non-cringe fields")]
     public float baseMoveDelayTime = 0.5f;
 
     public Image playerHealthBar;
     public Image opponentHealthBar;
 
+    public TextMeshProUGUI playerActionTextbox;
+    public TextMeshProUGUI opponentActionTextbox;
+
     private MoveSO playerMove;
     private MoveSO opponentMove;
 
-    [SerializeField]
+    private string playerActionText;
+    private string opponentActionText;
+
     private CharacterScript player, opponent;
 
     public void GenerateBattle(CharacterScript p, CharacterScript opp)
@@ -60,26 +70,42 @@ public class BattleManager : MonoBehaviour
     {
         SelectOpponentMove();
 
+        playerActionText = string.Empty;
+        opponentActionText = string.Empty;
+        playerActionTextbox.text = string.Empty;
+        opponentActionTextbox.text = string.Empty;
+
         // If player goes first
         if (player.spd >= opponent.spd)
         {
             // Uses the player's move since the player is faster
-            UseMove(player, opponent, playerMove);
+            playerActionText = UseMove(player, opponent, playerMove, playerActionText);
+            playerActionTextbox.text = playerActionText;
+            MoveAnimationManager.Instance.PlayAnimation(playerMove.type, playerMove.animationIndex, false);
             yield return new WaitForSeconds(baseMoveDelayTime + playerMove.animTime);
 
             
             // Then uses the opponents move after waiting for the appropriate delay
-            UseMove(opponent, player, opponentMove);
+            opponentActionText = UseMove(opponent, player, opponentMove, opponentActionText);
+            opponentActionTextbox.text = opponentActionText;
+            MoveAnimationManager.Instance.PlayAnimation(opponentMove.type, opponentMove.animationIndex, true);
             yield return new WaitForSeconds(baseMoveDelayTime + opponentMove.animTime);
         }
         else
         {
-            UseMove(opponent, player, opponentMove);
+            opponentActionText = UseMove(opponent, player, opponentMove, opponentActionText);
+            opponentActionTextbox.text = opponentActionText;
+            MoveAnimationManager.Instance.PlayAnimation(opponentMove.type, opponentMove.animationIndex, true);
             yield return new WaitForSeconds(baseMoveDelayTime + opponentMove.animTime);
 
-            UseMove(player, opponent, playerMove);
+            playerActionText = UseMove(player, opponent, playerMove, playerActionText);
+            playerActionTextbox.text = playerActionText;
+            MoveAnimationManager.Instance.PlayAnimation(playerMove.type, playerMove.animationIndex, false);
             yield return new WaitForSeconds(baseMoveDelayTime + playerMove.animTime);
         }
+
+        yield return new WaitForSeconds(1.0F);
+        gameManager.OpenBattleScene();
     }
 
     private void SelectOpponentMove()
@@ -89,28 +115,33 @@ public class BattleManager : MonoBehaviour
         opponentMove = opponent.moveset[selectedMoveIndex];
     }
 
-    private void UseMove(CharacterScript user, CharacterScript target, MoveSO move)
+    private string UseMove(CharacterScript user, CharacterScript target, MoveSO move, string moveText)
     {
+        moveText = user.charSO.characterName + " used " + move.moveName + "\n";
         // Calculate move damage
         if (move.effects.Contains(MoveEffect.Damage))
         {
             float effectiveAttack = (float)user.atk * (1.0f + ((float)user.atkBoost / 3.0f));
             float effectiveDefense = target.def * (1 + (target.defBoost / 3));
 
-            if(move.type.strongAgainst.Contains(target.charSO.characterType))
-            {
-                effectiveAttack *= 2;
-            } 
-            else if (move.type.weakAgainst.Contains(target.charSO.characterType))
-            {
-                effectiveAttack /= 2;
-            }
-
             Debug.Log("Effective attack: " +  effectiveAttack);
 
             float damage = effectiveAttack + move.damagePower / 2f * (100f / (100f + effectiveDefense));
 
-            Debug.Log("Damage: " + damage + "\nEnemy HP: " + target.currentHP);
+            if (move.type.strongAgainst.Contains(target.charSO.characterType))
+            {
+                moveText += "It's highly effective\n";
+                damage *= 1.5f;
+            }
+            else if (move.type.weakAgainst.Contains(target.charSO.characterType))
+            {
+                moveText += "It's sucks.\n";
+                damage /= 1.5f;
+            }
+
+            damage = Mathf.Max(1, damage);
+
+            Debug.Log("Damage: " + (int)damage + "\nEnemy HP: " + target.currentHP);
 
             target.currentHP = Mathf.Max((int)target.currentHP - (int)damage, 0);
             // TODO: Play animations
@@ -125,15 +156,18 @@ public class BattleManager : MonoBehaviour
 
             if(move.statusTarget == Target.Self) 
             {
+                moveText += user.charSO.characterName + "'s " + move.statChanged + " increased by " + move.stagesChanged + " stage(s).\n";
                 user.BoostStat(move.statChanged, move.stagesChanged);
             }
             else if(move.statusTarget == Target.Opponent)
             {
+                moveText += opponent.charSO.characterName + "'s " + move.statChanged + " increased by " + move.stagesChanged + " stage(s).\n";
                 target.BoostStat(move.statChanged, move.stagesChanged);
             }
-
-            // TODO: Play animations
+            
         }
+
+        return moveText;
     }
 
     private void GameOver()

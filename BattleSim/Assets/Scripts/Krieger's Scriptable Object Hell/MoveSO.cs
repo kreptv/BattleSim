@@ -15,6 +15,7 @@ public class MoveSO : ScriptableObject
     [Header("Animations")]
     //public Sprite animSprite;
     public float animTime = 0.1f;
+    public int animationIndex = 0;
 
     [Space(10)]
     [Header("Damage Effects")]

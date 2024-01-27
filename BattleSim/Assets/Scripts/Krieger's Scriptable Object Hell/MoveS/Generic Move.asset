@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Generic Move
   moveDescription: For testing purposes, 10 power and boosts speed
-  type: 2
+  type: {fileID: 11400000, guid: a56b51011b14dd348a7bab183941421f, type: 2}
   effects: 0000000001000000
-  animSprite: {fileID: -1566835259, guid: b2aa599fa5f04414e8fe83054e809d30, type: 3}
   animTime: 0.1
+  animationIndex: 0
   damagePower: 10
   statusTarget: 0
   statChanged: 2

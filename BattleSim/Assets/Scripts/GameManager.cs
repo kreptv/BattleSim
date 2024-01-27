@@ -293,7 +293,7 @@ public void OpenMenu()
 
         // Check for enemy death
         // Check for player death
-        OpenBattleScene();
+        // OpenBattleScene();
 
     }
 
