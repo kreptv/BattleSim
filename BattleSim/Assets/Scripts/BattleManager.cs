@@ -42,6 +42,8 @@ public class BattleManager : MonoBehaviour
 
     private CharacterScript player, opponent;
 
+    private Coroutine battleCoroutine;
+
     public void GenerateBattle(CharacterScript p, CharacterScript opp)
     {
         player = p;
@@ -63,7 +65,7 @@ public class BattleManager : MonoBehaviour
     public void PlayerSelectMove(int moveIndex)
     {
         playerMove = player.moveset[moveIndex];
-        StartCoroutine(ComputeTurn());
+        battleCoroutine = StartCoroutine(ComputeTurn());
     }
 
     IEnumerator ComputeTurn()
@@ -147,6 +149,7 @@ public class BattleManager : MonoBehaviour
             // TODO: Play animations
 
             SetHealthBars();
+            CheckForDeath();
         }
 
         // TODO: calculate status
@@ -170,17 +173,18 @@ public class BattleManager : MonoBehaviour
         return moveText;
     }
 
-    private void GameOver()
+    private void CheckForDeath()
     {
-        // TODO: Game over stuff
-        Application.Quit();
-    }
-
-    private void BattleWon()
-    {
-        player.LevelUp();
-
-        // TODO: Winning battle stuff
+        if(player.currentHP <= 0)
+        {
+            gameManager.LoseBattle();
+            StopCoroutine(battleCoroutine);
+        }
+        else if(opponent.currentHP <= 0)
+        {
+            gameManager.WinBattle();
+            StopCoroutine (battleCoroutine);
+        }
     }
 
     private void SetHealthBars()
