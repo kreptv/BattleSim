@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeName: Basic
   strongAgainst: []
-  weakAgainst: []
+  weakAgainst:
+  - {fileID: 11400000, guid: bad747effcd8a8f48928c842fb985f7f, type: 2}

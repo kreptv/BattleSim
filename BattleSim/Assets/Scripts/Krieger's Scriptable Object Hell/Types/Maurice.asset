@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c52486fa4fb6274a8b7f5b6d653fc92, type: 3}
   m_Name: Maurice
   m_EditorClassIdentifier: 
-  typeName: Basic
-  strongAgainst: []
-  weakAgainst: []
+  typeName: Maurice
+  strongAgainst:
+  - {fileID: 11400000, guid: d67ecf3982916464b8f86be0f82a3abd, type: 2}
+  - {fileID: 11400000, guid: 2fd06d780bb3c074fba41c3f6b782f7c, type: 2}
+  - {fileID: 11400000, guid: bf2c0370b2c4dac45b808b6307b9ce1c, type: 2}
+  - {fileID: 11400000, guid: a56b51011b14dd348a7bab183941421f, type: 2}
+  weakAgainst:
+  - {fileID: 11400000}

@@ -11,12 +11,20 @@ public class MoveSO : ScriptableObject
     public Type type = Type.Basic;
     public List<MoveEffect> effects = new List<MoveEffect>();
 
+    [Space(10)]
+    [Header("Animations")]
+    //public Sprite animSprite;
+    public float animTime = 0.1f;
+
+    [Space(10)]
     [Header("Damage Effects")]
     public int damagePower;
 
-    /*[Space(10)]
-    [Header("Debuff Effects")]*/
-    
+    [Space(10)]
+    [Header("Status Effects")]
+    public Target statusTarget;
+    public Stat statChanged;
+    public int stagesChanged;
 }
 
 public enum MoveEffect
