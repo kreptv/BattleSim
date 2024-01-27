@@ -238,6 +238,8 @@ public void OpenMenu()
         PlayerCharacterImage.sprite = ActiveCharacter.charSO.characterSprite;
         EnemyCharacterImage.sprite = EnemyCharacter.charSO.characterSprite;
         OpenBattleScene();
+
+        BattleManager.Instance.GenerateBattle(ActiveCharacter, EnemyCharacter);
     }
 
     public void OpenBattleScene()
@@ -593,6 +595,10 @@ public void OpenMenu()
 
     private void InitializeAttackPannel()
     {
+        Attack1Button.gameObject.GetComponent<Image>().color = ActiveCharacter.moveset[0].type.typeColor;
+        Attack2Button.gameObject.GetComponent<Image>().color = ActiveCharacter.moveset[1].type.typeColor;
+        Attack3Button.gameObject.GetComponent<Image>().color = ActiveCharacter.moveset[2].type.typeColor;
+
         Attack1NameText.text = ActiveCharacter.moveset[0].moveName;
         Attack2NameText.text = ActiveCharacter.moveset[1].moveName;
         Attack3NameText.text = ActiveCharacter.moveset[2].moveName;

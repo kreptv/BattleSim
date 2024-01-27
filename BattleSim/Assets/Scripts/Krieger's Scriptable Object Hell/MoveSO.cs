@@ -8,7 +8,7 @@ public class MoveSO : ScriptableObject
     public string moveName = "Splash";
     public string moveDescription = "Does nothing";
 
-    public Type type = Type.Basic;
+    public TypeSO type;
     public List<MoveEffect> effects = new List<MoveEffect>();
 
     [Space(10)]
