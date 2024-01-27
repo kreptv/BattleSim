@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,10 +26,10 @@ public class GameManager : MonoBehaviour
     public Button BackToMenuButtonCSS;
     public Button GoButtonCSS;
 
-                           // Rahdy 0, LillyFlynn 1, Foge 2,
-                           // Felix 3, Jamie 4, Messy 5,
-                           // Cosmos 6, Koda 7, Adrian 8,
-                           // Zero 9, Skoryx 10, Hadrian 11
+    // Rahdy 0, LillyFlynn 1, Foge 2,
+    // Felix 3, Jamie 4, Messy 5,
+    // Cosmos 6, Koda 7, Adrian 8,
+    // Zero 9, Skoryx 10, Hadrian 11
 
     public Button[] CharacterButtonsCSS;
 
@@ -93,89 +93,89 @@ public class GameManager : MonoBehaviour
     // END OF ROUND SCENE //
 
 
+    // ANIMATOR REFERENCES //
+    public Animator SceneTransitionAnimator;
+    // ANIMATOR REFERENCES //
 
-
-
-
-    // BATTLE SCENE UI  //
+    private bool JustStartingGame = true;
 
 
     void Start()
     {
-        OpenMenu();
-    }
+        StartCoroutine(OpenMenu());
 
-    public void RemoveAllListeners()
-    {
-        // menu scene
-        StartButton.onClick.RemoveListener(OpenCharacterSelectScene);
-        CreditsButton.onClick.RemoveListener(OpenCredits);
+        StartButton.onClick.AddListener(delegate { StartCoroutine(OpenCharacterSelectScene()); });
+        CreditsButton.onClick.AddListener(delegate { StartCoroutine(OpenCredits()); });
 
-        // credits scene
-        BackButton.onClick.RemoveListener(OpenMenu);
+        BackButton.onClick.AddListener(delegate { StartCoroutine(OpenMenu()); });
 
-        // character selection scene
-        BackToMenuButtonCSS.onClick.RemoveListener(OpenMenu);
-        GoButtonCSS.onClick.RemoveListener(OpenBattleScene);
+        BackToMenuButtonCSS.onClick.AddListener(delegate { StartCoroutine(OpenMenu()); });
+
 
         for (int i = 0; i < 12; i++)
         {
             int j = i;
-            CharacterButtonsCSS[j].onClick.RemoveListener(delegate { CSSPreview(Characters[j], j); });
+            Characters[i] = CharacterButtonsCSS[i].gameObject.GetComponent<CharacterScript>();
+
+            CharacterButtonsCSS[j].onClick.AddListener(delegate { CSSPreview(Characters[j], j); });
 
         }
 
-        CharacterNameCSS.text = "No character selected";
-        DescriptionTextCSS.text = "";
-        StatsCSS.text = "";
-        FullBodyPreviewCSS.sprite = BlankSprite;
+        GoButtonCSS.onClick.AddListener(delegate { StartCoroutine(InitiateBattleScene()); });
 
-        // battle scene
+        AttackButton.onClick.AddListener(OpenAttackMenu);
+        DefendButton.onClick.AddListener(UseDefend);
 
-        AttackButton.onClick.RemoveListener(OpenAttackMenu);
-        DefendButton.onClick.RemoveListener(UseDefend);
+        Attack1Button.onClick.AddListener(delegate { UseAttack(0); });
+        Attack2Button.onClick.AddListener(delegate { UseAttack(1); });
+        Attack3Button.onClick.AddListener(delegate { UseAttack(2); });
 
-        Attack1Button.onClick.RemoveListener(delegate { UseAttack(0); });
-        Attack2Button.onClick.RemoveListener(delegate { UseAttack(1); });
-        Attack3Button.onClick.RemoveListener(delegate { UseAttack(2); });
+        FromLostSceneToCharacterSelectionButton.onClick.AddListener(delegate { StartCoroutine(OpenCharacterSelectScene()); });
+        FromWinSceneToCharacterSelectionButton.onClick.AddListener(delegate { StartCoroutine(OpenCharacterSelectScene()); });
+        FromLevelUpToCharacterSelectionButton.onClick.AddListener(delegate { StartCoroutine(OpenCharacterSelectScene()); });
 
-
-        // End of round scene
-
-        FromLevelUpToCharacterSelectionButton.onClick.RemoveListener(OpenCharacterSelectScene);
-        FromLostSceneToCharacterSelectionButton.onClick.RemoveListener(OpenCharacterSelectScene);
-        FromWinSceneToCharacterSelectionButton.onClick.RemoveListener(OpenCharacterSelectScene);
 
 
     }
 
-public void OpenMenu()
+    public IEnumerator OpenMenu()
     {
-        RemoveAllListeners();
-        StartButton.onClick.AddListener(OpenCharacterSelectScene);
-        CreditsButton.onClick.AddListener(OpenCredits);
+        if (!JustStartingGame)
+        {
+            SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.4f, 0.2078432f, 0.2509804f, 1f);
+            TransitionScene();
+            yield return new WaitForSeconds(0.5f);
+        }
+        Debug.Log("Test");
+        JustStartingGame = false;
 
         MenuCanvas.SetActive(true);
         CreditsCanvas.SetActive(false);
         CharacterSelectCanvas.SetActive(false);
         BattleCanvas.SetActive(false);
+
+        yield return null;
+
+
     }
 
-    public void OpenCredits()
+    public IEnumerator OpenCredits()
     {
-        RemoveAllListeners();
-        BackButton.onClick.AddListener(OpenMenu);
+        SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.2235294f, 0.2313726f, 0.4392157f, 1f);
+        TransitionScene(); yield return new WaitForSeconds(0.5f);
 
         MenuCanvas.SetActive(false);
         CreditsCanvas.SetActive(true);
         CharacterSelectCanvas.SetActive(false);
         BattleCanvas.SetActive(false);
+
+        yield return null;
     }
 
-    public void OpenCharacterSelectScene()
+    public IEnumerator OpenCharacterSelectScene()
     {
-        RemoveAllListeners();
-        BackToMenuButtonCSS.onClick.AddListener(OpenMenu);
+        SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.3893612f, 0.1984247f, 0.4622642f, 1f);
+        TransitionScene(); yield return new WaitForSeconds(0.5f);
 
         //
 
@@ -190,12 +190,9 @@ public void OpenMenu()
 
         //
 
-        for (int i = 0; i<12; i++)
+        for (int i = 0; i < 12; i++)
         {
             int j = i;
-            Characters[i] = CharacterButtonsCSS[i].gameObject.GetComponent<CharacterScript>();
-
-            CharacterButtonsCSS[j].onClick.AddListener(delegate { CSSPreview(Characters[j], j); });
 
             if (Characters[i].isLocked) // character locked, so show lock image & disable button
             {
@@ -209,6 +206,8 @@ public void OpenMenu()
             }
 
         }
+
+        yield return null;
 
     }
 
@@ -227,28 +226,27 @@ public void OpenMenu()
         ActiveCharacter = Characters[index];
         ActiveCharacterIndex = index;
 
-        GoButtonCSS.onClick.AddListener(InitiateBattleScene);
-
 
     }
 
-    public void InitiateBattleScene()
+    public IEnumerator InitiateBattleScene()
     {
+        SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.1132075f, 0.06354573f, 0.1102862f, 1f);
+        TransitionScene(); yield return new WaitForSeconds(0.5f);
         FindNextEnemy();
         PlayerCharacterImage.sprite = ActiveCharacter.charSO.characterSprite;
         EnemyCharacterImage.sprite = EnemyCharacter.charSO.characterSprite;
         OpenBattleScene();
 
         BattleManager.Instance.GenerateBattle(ActiveCharacter, EnemyCharacter);
+
+        yield return null;
     }
 
     public void OpenBattleScene()
     {
-        RemoveAllListeners();
 
         //
-        AttackButton.onClick.AddListener(OpenAttackMenu);
-        DefendButton.onClick.AddListener(UseDefend);
         //
 
         MenuCanvas.SetActive(false);
@@ -263,12 +261,8 @@ public void OpenMenu()
 
     public void OpenAttackMenu()
     {
-        RemoveAllListeners();
 
         //
-        Attack1Button.onClick.AddListener(delegate { UseAttack(0); });
-        Attack2Button.onClick.AddListener(delegate { UseAttack(1); });
-        Attack3Button.onClick.AddListener(delegate { UseAttack(2); });
         //
 
         MenuCanvas.SetActive(false);
@@ -293,7 +287,6 @@ public void OpenMenu()
 
         // Check for enemy death
         // Check for player death
-        // OpenBattleScene();
 
     }
 
@@ -308,7 +301,7 @@ public void OpenMenu()
 
         // Check for enemy death
         // Check for player death
-        OpenBattleScene();
+        //OpenBattleScene();
 
     }
 
@@ -405,7 +398,7 @@ public void OpenMenu()
 
                 default:
                     myRand = UnityEngine.Random.Range(0, 3);
-                    EnemyCharacter = Characters[myRand+3];
+                    EnemyCharacter = Characters[myRand + 3];
                     break;
             }
 
@@ -517,16 +510,21 @@ public void OpenMenu()
 
     }
 
-    public void LoseBattle()
+    public IEnumerator LoseBattle()
     {
+
+        SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.4528302f, 0.3073124f, 0.2029192f, 1f);
+        TransitionScene(); yield return new WaitForSeconds(0.5f);
         YouLostCanvas.SetActive(true);
-        FromLostSceneToCharacterSelectionButton.onClick.AddListener(OpenCharacterSelectScene);
+        yield return null;
     }
 
 
 
-    public void WinBattle()
+    public IEnumerator WinBattle()
     {
+        SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.1618904f, 0.3207547f, 0.1618904f, 1f);
+        TransitionScene(); yield return new WaitForSeconds(0.5f);
         // UNLOCK NEW CHARACTERS //
 
         PlayerProgression++;
@@ -572,25 +570,34 @@ public void OpenMenu()
         {
             // win
             YouWinCanvas.SetActive(true);
-            FromWinSceneToCharacterSelectionButton.onClick.AddListener(OpenCharacterSelectScene);
 
             PlayerProgression = 0;
-            for (int i = 3; i< 12; i++)
+            for (int i = 3; i < 12; i++)
             {
                 Characters[i].isLocked = true;
             }
-        } else if (PlayerProgression < 5)
+        }
+        else if (PlayerProgression < 5)
         {
             // level up
             LevelUpCanvas.SetActive(true);
-            FromLevelUpToCharacterSelectionButton.onClick.AddListener(OpenCharacterSelectScene);
         }
+
+        yield return null;
 
 
 
 
 
     }
+
+    public void TransitionScene()
+    {
+        SceneTransitionAnimator.SetTrigger("TriggerSceneTransition");
+    }
+
+
+
 
 
     private void InitializeAttackPannel()
