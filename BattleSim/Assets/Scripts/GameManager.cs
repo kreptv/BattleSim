@@ -80,6 +80,19 @@ public class GameManager : MonoBehaviour
     public GameObject AttackBattlePanel;
     public GameObject EmptyBattlePanel;
 
+    // BATTLE SCENE UI  //
+
+    // END OF ROUND SCENE //
+    public GameObject YouLostCanvas;
+    public GameObject YouWinCanvas;
+    public GameObject LevelUpCanvas;
+
+    public Button FromLostSceneToCharacterSelectionButton;
+    public Button FromWinSceneToCharacterSelectionButton;
+    public Button FromLevelUpToCharacterSelectionButton;
+    // END OF ROUND SCENE //
+
+
 
 
 
@@ -127,9 +140,16 @@ public class GameManager : MonoBehaviour
         Attack3Button.onClick.RemoveListener(delegate { UseAttack(2); });
 
 
+        // End of round scene
+
+        FromLevelUpToCharacterSelectionButton.onClick.RemoveListener(OpenCharacterSelectScene);
+        FromLostSceneToCharacterSelectionButton.onClick.RemoveListener(OpenCharacterSelectScene);
+        FromWinSceneToCharacterSelectionButton.onClick.RemoveListener(OpenCharacterSelectScene);
+
+
     }
 
-    public void OpenMenu()
+public void OpenMenu()
     {
         RemoveAllListeners();
         StartButton.onClick.AddListener(OpenCharacterSelectScene);
@@ -158,6 +178,10 @@ public class GameManager : MonoBehaviour
         BackToMenuButtonCSS.onClick.AddListener(OpenMenu);
 
         //
+
+        LevelUpCanvas.SetActive(false);
+        YouWinCanvas.SetActive(false);
+        YouLostCanvas.SetActive(false);
 
         MenuCanvas.SetActive(false);
         CreditsCanvas.SetActive(false);
@@ -489,12 +513,15 @@ public class GameManager : MonoBehaviour
 
 
 
-
-
-
-
-
     }
+
+    public void LoseBattle()
+    {
+        YouLostCanvas.SetActive(true);
+        FromLostSceneToCharacterSelectionButton.onClick.AddListener(OpenCharacterSelectScene);
+    }
+
+
 
     public void WinBattle()
     {
@@ -538,6 +565,24 @@ public class GameManager : MonoBehaviour
             }
         }
         // UNLOCK NEW CHARACTERS //
+
+        if (PlayerProgression == 5)
+        {
+            // win
+            YouWinCanvas.SetActive(true);
+            FromWinSceneToCharacterSelectionButton.onClick.AddListener(OpenCharacterSelectScene);
+
+            PlayerProgression = 0;
+            for (int i = 3; i< 12; i++)
+            {
+                Characters[i].isLocked = true;
+            }
+        } else if (PlayerProgression < 5)
+        {
+            // level up
+            LevelUpCanvas.SetActive(true);
+            FromLevelUpToCharacterSelectionButton.onClick.AddListener(OpenCharacterSelectScene);
+        }
 
 
 
