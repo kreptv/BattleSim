@@ -224,7 +224,7 @@ public class GameManager : MonoBehaviour
         StatsCSS.text = "ATK: " + character.atk + Environment.NewLine +
             "DEF: " + character.def + Environment.NewLine +
             "SPD: " + character.spd + Environment.NewLine +
-            "Element: " + character.charSO.characterType;
+            "Element: " + character.charSO.characterType.typeName;
         FullBodyPreviewCSS.sprite = character.charSO.characterSprite;
 
         ActiveCharacter = Characters[index];

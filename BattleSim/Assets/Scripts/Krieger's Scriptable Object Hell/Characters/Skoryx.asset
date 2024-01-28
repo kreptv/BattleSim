@@ -28,15 +28,15 @@ MonoBehaviour:
   baseDefense: 1
   baseSpeed: 1
   healthGrowth: 0
-  attackGrowth: 0
-  defenseGrowth: 0
-  speedGrowth: 0
+  attackGrowth: 18
+  defenseGrowth: 7
+  speedGrowth: 25
   healthCap: 25
   attackCap: 25
   defenseCap: 25
   speedCap: 25
   startingMoves:
   - {fileID: 11400000, guid: 81405257be55dd343820eda23d162d2e, type: 2}
-  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
+  - {fileID: 11400000, guid: 766b119681bd9364798050f27450d009, type: 2}
   - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
   learnableMoves: []

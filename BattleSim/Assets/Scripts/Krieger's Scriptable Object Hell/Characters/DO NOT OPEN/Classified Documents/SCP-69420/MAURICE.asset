@@ -18,20 +18,20 @@ MonoBehaviour:
   characterSprite: {fileID: 21300000, guid: 78674483b3d144e75b9c81682081ccfd, type: 3}
   characterType: {fileID: 11400000, guid: bad747effcd8a8f48928c842fb985f7f, type: 2}
   startingLevel: 1
-  baseHealth: 30
+  baseHealth: 80
   baseAttack: 30
   baseDefense: 30
   baseSpeed: 30
-  healthGrowth: 0
+  healthGrowth: -5
   attackGrowth: 0
   defenseGrowth: 0
   speedGrowth: 0
-  healthCap: 25
-  attackCap: 25
-  defenseCap: 25
-  speedCap: 25
+  healthCap: 80
+  attackCap: 80
+  defenseCap: 80
+  speedCap: 80
   startingMoves:
-  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
-  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
-  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
+  - {fileID: 11400000, guid: 92ec64a66cd7f134a998986967c57174, type: 2}
+  - {fileID: 11400000, guid: 92ec64a66cd7f134a998986967c57174, type: 2}
+  - {fileID: 11400000, guid: 92ec64a66cd7f134a998986967c57174, type: 2}
   learnableMoves: []

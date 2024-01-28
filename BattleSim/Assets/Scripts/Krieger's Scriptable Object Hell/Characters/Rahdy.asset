@@ -24,17 +24,17 @@ MonoBehaviour:
   characterType: {fileID: 11400000, guid: a56b51011b14dd348a7bab183941421f, type: 2}
   startingLevel: 1
   baseHealth: 25
-  baseAttack: 1
-  baseDefense: 1
-  baseSpeed: 1
-  healthGrowth: 0
-  attackGrowth: 0
-  defenseGrowth: 0
-  speedGrowth: 0
-  healthCap: 25
-  attackCap: 25
-  defenseCap: 25
-  speedCap: 25
+  baseAttack: 8
+  baseDefense: 10
+  baseSpeed: 5
+  healthGrowth: 10
+  attackGrowth: 5
+  defenseGrowth: 4
+  speedGrowth: 2
+  healthCap: 50
+  attackCap: 50
+  defenseCap: 50
+  speedCap: 50
   startingMoves:
   - {fileID: 11400000, guid: 81405257be55dd343820eda23d162d2e, type: 2}
   - {fileID: 11400000, guid: daec9a55f124bed4dba00695034a4b75, type: 2}
