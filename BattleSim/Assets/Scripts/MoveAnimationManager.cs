@@ -105,6 +105,7 @@ public class MoveAnimationManager : MonoBehaviour
 
     private void TriggerAnimation(string triggerName, bool hittingPlayer)
     {
+        
         if(hittingPlayer)
         {
             attackHittingPlayer.SetTrigger(triggerName);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,6 +35,8 @@ public class BattleManager : MonoBehaviour
     public TextMeshProUGUI playerActionTextbox;
     public TextMeshProUGUI opponentActionTextbox;
 
+    private AudioSource aSource;
+
     private MoveSO playerMove;
     private MoveSO opponentMove;
 
@@ -60,6 +63,8 @@ public class BattleManager : MonoBehaviour
         opponent.spdBoost = 0;
 
         SetHealthBars();
+
+        aSource = gameManager.am.ass2;
         // TODO: Make sure all this works with Haley's battle scene stuff
     }
 
@@ -89,7 +94,7 @@ public class BattleManager : MonoBehaviour
             playerActionTextbox.text = playerActionText;
             MoveAnimationManager.Instance.PlayAnimation(playerMove.type, playerMove.animationIndex, false);
             yield return new WaitForSeconds(baseMoveDelayTime + playerMove.animTime);
-            CheckForDeath();
+            if(CheckForDeath()) { yield break; }
 
 
             // Then uses the opponents move after waiting for the appropriate delay
@@ -97,7 +102,7 @@ public class BattleManager : MonoBehaviour
             opponentActionTextbox.text = opponentActionText;
             MoveAnimationManager.Instance.PlayAnimation(opponentMove.type, opponentMove.animationIndex, true);
             yield return new WaitForSeconds(baseMoveDelayTime + opponentMove.animTime);
-            CheckForDeath();
+            if (CheckForDeath()) { yield break; }
         }
         else
         {
@@ -105,13 +110,13 @@ public class BattleManager : MonoBehaviour
             opponentActionTextbox.text = opponentActionText;
             MoveAnimationManager.Instance.PlayAnimation(opponentMove.type, opponentMove.animationIndex, true);
             yield return new WaitForSeconds(baseMoveDelayTime + opponentMove.animTime);
-            CheckForDeath();
+            if (CheckForDeath()) { yield break; }
 
             playerActionText = UseMove(player, opponent, playerMove, playerActionText);
             playerActionTextbox.text = playerActionText;
             MoveAnimationManager.Instance.PlayAnimation(playerMove.type, playerMove.animationIndex, false);
             yield return new WaitForSeconds(baseMoveDelayTime + playerMove.animTime);
-            CheckForDeath();
+            if (CheckForDeath()) { yield break; }
         }
 
         yield return new WaitForSeconds(1.0F);
@@ -127,6 +132,8 @@ public class BattleManager : MonoBehaviour
 
     private string UseMove(CharacterScript user, CharacterScript target, MoveSO move, string moveText)
     {
+        aSource.clip = move.soundEffect;
+        aSource.Play();
         moveText = user.charSO.characterName + " used " + move.moveName + "\n";
         // Calculate move damage
         if (move.effects.Contains(MoveEffect.Damage))
@@ -181,13 +188,14 @@ public class BattleManager : MonoBehaviour
         return moveText;
     }
 
-    private void CheckForDeath()
+    private bool CheckForDeath()
     {
         if(player.currentHP <= 0)
         {
             Debug.Log("Death located");
             StartCoroutine(gameManager.LoseBattle());
             StopCoroutine(battleCoroutine);
+            return true;
         }
         else if(opponent.currentHP <= 0)
         {
@@ -195,7 +203,9 @@ public class BattleManager : MonoBehaviour
             StartCoroutine(gameManager.WinBattle());
             player.LevelUp();
             StopCoroutine (battleCoroutine);
+            return true;
         }
+        return false;
     }
 
     private void SetHealthBars()
