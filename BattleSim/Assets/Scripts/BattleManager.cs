@@ -129,11 +129,11 @@ public class BattleManager : MonoBehaviour
         if (move.effects.Contains(MoveEffect.Damage))
         {
             float effectiveAttack = (float)user.atk * (1.0f + ((float)user.atkBoost / 3.0f));
-            float effectiveDefense = target.def * (1 + (target.defBoost / 3));
+            float effectiveDefense = target.def * (1.0f + ((float)target.defBoost / 3f));
 
             Debug.Log("Effective attack: " +  effectiveAttack);
 
-            float damage = effectiveAttack + move.damagePower / 2f * (100f / (100f + effectiveDefense));
+            float damage = effectiveAttack + move.damagePower / 2f * Mathf.Pow((100f / (100f + effectiveDefense)),2f);
 
             if (move.type.strongAgainst.Contains(target.charSO.characterType))
             {

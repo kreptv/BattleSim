@@ -23,18 +23,18 @@ MonoBehaviour:
   characterSprite: {fileID: 21300000, guid: 092f1ae738c824760b07453c5e36f91d, type: 3}
   characterType: {fileID: 11400000, guid: bf2c0370b2c4dac45b808b6307b9ce1c, type: 2}
   startingLevel: 1
-  baseHealth: 10
-  baseAttack: 1
-  baseDefense: 1
-  baseSpeed: 1
-  healthGrowth: 0
-  attackGrowth: 18
-  defenseGrowth: 7
-  speedGrowth: 25
-  healthCap: 25
-  attackCap: 25
-  defenseCap: 25
-  speedCap: 25
+  baseHealth: 100
+  baseAttack: 18
+  baseDefense: 7
+  baseSpeed: 25
+  healthGrowth: 20
+  attackGrowth: 4
+  defenseGrowth: 2
+  speedGrowth: 5
+  healthCap: 100
+  attackCap: 50
+  defenseCap: 50
+  speedCap: 50
   startingMoves:
   - {fileID: 11400000, guid: 81405257be55dd343820eda23d162d2e, type: 2}
   - {fileID: 11400000, guid: 766b119681bd9364798050f27450d009, type: 2}

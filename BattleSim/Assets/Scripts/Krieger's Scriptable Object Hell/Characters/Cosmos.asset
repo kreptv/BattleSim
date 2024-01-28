@@ -26,11 +26,11 @@ MonoBehaviour:
   characterSprite: {fileID: 21300000, guid: d19b5b4d12b534c83880b4be7c36ec85, type: 3}
   characterType: {fileID: 11400000, guid: a56b51011b14dd348a7bab183941421f, type: 2}
   startingLevel: 1
-  baseHealth: 40
+  baseHealth: 80
   baseAttack: 14
   baseDefense: 20
   baseSpeed: 10
-  healthGrowth: 10
+  healthGrowth: 20
   attackGrowth: 5
   defenseGrowth: 4
   speedGrowth: 2
