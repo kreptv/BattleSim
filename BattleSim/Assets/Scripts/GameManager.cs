@@ -99,6 +99,8 @@ public class GameManager : MonoBehaviour
 
     private bool JustStartingGame = true;
 
+    public AudioManager am;
+
 
     void Start()
     {
@@ -160,6 +162,7 @@ public class GameManager : MonoBehaviour
 
         yield return null;
 
+        am.MenuSceneOpened();
 
     }
 
@@ -178,6 +181,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator OpenCharacterSelectScene()
     {
+        am.CharacterSelectSceneOpened();
         SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.3893612f, 0.1984247f, 0.4622642f, 1f);
         TransitionScene(); yield return new WaitForSeconds(0.5f); SceneTransitionAnimator.ResetTrigger("TriggerSceneTransition");
 
@@ -235,6 +239,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator InitiateBattleScene()
     {
+        am.BattleSceneOpened();
         SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.1132075f, 0.06354573f, 0.1102862f, 1f);
         TransitionScene(); yield return new WaitForSeconds(0.5f);
         FindNextEnemy();
