@@ -59,6 +59,7 @@ public class BattleManager : MonoBehaviour
         opponent.defBoost = 0;
         opponent.spdBoost = 0;
 
+        SetHealthBars();
         // TODO: Make sure all this works with Haley's battle scene stuff
     }
 
@@ -85,13 +86,15 @@ public class BattleManager : MonoBehaviour
             playerActionTextbox.text = playerActionText;
             MoveAnimationManager.Instance.PlayAnimation(playerMove.type, playerMove.animationIndex, false);
             yield return new WaitForSeconds(baseMoveDelayTime + playerMove.animTime);
+            CheckForDeath();
 
-            
+
             // Then uses the opponents move after waiting for the appropriate delay
             opponentActionText = UseMove(opponent, player, opponentMove, opponentActionText);
             opponentActionTextbox.text = opponentActionText;
             MoveAnimationManager.Instance.PlayAnimation(opponentMove.type, opponentMove.animationIndex, true);
             yield return new WaitForSeconds(baseMoveDelayTime + opponentMove.animTime);
+            CheckForDeath();
         }
         else
         {
@@ -99,11 +102,13 @@ public class BattleManager : MonoBehaviour
             opponentActionTextbox.text = opponentActionText;
             MoveAnimationManager.Instance.PlayAnimation(opponentMove.type, opponentMove.animationIndex, true);
             yield return new WaitForSeconds(baseMoveDelayTime + opponentMove.animTime);
+            CheckForDeath();
 
             playerActionText = UseMove(player, opponent, playerMove, playerActionText);
             playerActionTextbox.text = playerActionText;
             MoveAnimationManager.Instance.PlayAnimation(playerMove.type, playerMove.animationIndex, false);
             yield return new WaitForSeconds(baseMoveDelayTime + playerMove.animTime);
+            CheckForDeath();
         }
 
         yield return new WaitForSeconds(1.0F);
@@ -149,7 +154,7 @@ public class BattleManager : MonoBehaviour
             // TODO: Play animations
 
             SetHealthBars();
-            CheckForDeath();
+            
         }
 
         // TODO: calculate status
@@ -177,12 +182,14 @@ public class BattleManager : MonoBehaviour
     {
         if(player.currentHP <= 0)
         {
-            gameManager.LoseBattle();
+            Debug.Log("Death located");
+            StartCoroutine(gameManager.LoseBattle());
             StopCoroutine(battleCoroutine);
         }
         else if(opponent.currentHP <= 0)
         {
-            gameManager.WinBattle();
+            Debug.Log("Death located");
+            StartCoroutine(gameManager.WinBattle());
             StopCoroutine (battleCoroutine);
         }
     }
