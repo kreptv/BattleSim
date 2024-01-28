@@ -35,12 +35,25 @@ public class MoveAnimationManager : MonoBehaviour
             {
                 TriggerAnimation("Normal 1 Trigger", hittingPlayer);
             }
+
         }
         else if (type.typeName == "Moist")
         {
-            if (index == 0)
+            if (index <= 0)
             {
                 TriggerAnimation("Moist 1 Trigger", hittingPlayer);
+            }
+            else if(index == 1)
+            {
+                TriggerAnimation("MoistPieAttack Trigger", hittingPlayer);
+            }
+            else if(index ==2)
+            {
+                TriggerAnimation("MoistRakeAttack Trigger", hittingPlayer);
+            }
+            else if (index >= 3)
+            {
+                TriggerAnimation("MoistBananaAttack", hittingPlayer);
             }
         }
         else if (type.typeName == "Leaf")
@@ -49,12 +62,36 @@ public class MoveAnimationManager : MonoBehaviour
             {
                 TriggerAnimation("Leaf 1 Trigger", hittingPlayer);
             }
+            else if (index == 1)
+            {
+                TriggerAnimation("LeafPieAttack Trigger", hittingPlayer);
+            }
+            else if (index == 2)
+            {
+                TriggerAnimation("LeafRakeAttack Trigger", hittingPlayer);
+            }
+            else if (index >= 3)
+            {
+                TriggerAnimation("LeafBananaAttack", hittingPlayer);
+            }
         }
         else if (type.typeName == "Flame")
         {
             if (index == 0)
             {
                 TriggerAnimation("Flame 1 Trigger", hittingPlayer);
+            }
+            else if (index == 1)
+            {
+                TriggerAnimation("FlamePieAttack Trigger", hittingPlayer);
+            }
+            else if (index == 2)
+            {
+                TriggerAnimation("FlameRakeAttack Trigger", hittingPlayer);
+            }
+            else if (index >= 3)
+            {
+                TriggerAnimation("FlameBananaAttack", hittingPlayer);
             }
         }
         else if (type.typeName == "Maurice")

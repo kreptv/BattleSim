@@ -18,6 +18,10 @@ public class MoveSO : ScriptableObject
     public int animationIndex = 0;
 
     [Space(10)]
+    [Header("Sound effects")]
+    public AudioClip soundEffect;
+
+    [Space(10)]
     [Header("Damage Effects")]
     public int damagePower;
 

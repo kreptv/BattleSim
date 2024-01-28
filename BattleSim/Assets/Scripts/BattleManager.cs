@@ -78,8 +78,11 @@ public class BattleManager : MonoBehaviour
         playerActionTextbox.text = string.Empty;
         opponentActionTextbox.text = string.Empty;
 
+        float playerEffectiveSpeed = (float)player.spd * ((float)player.spdBoost / 3f);
+        float opponentEffectiveSpeed = (float)opponent.spd * ((float)opponent.spdBoost / 3f);
+
         // If player goes first
-        if (player.spd >= opponent.spd)
+        if (playerEffectiveSpeed >= opponentEffectiveSpeed)
         {
             // Uses the player's move since the player is faster
             playerActionText = UseMove(player, opponent, playerMove, playerActionText);
