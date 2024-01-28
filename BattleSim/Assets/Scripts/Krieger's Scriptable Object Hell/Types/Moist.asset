@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Moist
   m_EditorClassIdentifier: 
   typeName: Moist
+  typeColor: {r: 0.2984336, g: 0.40233818, b: 0.7830189, a: 1}
   strongAgainst:
   - {fileID: 11400000, guid: 2fd06d780bb3c074fba41c3f6b782f7c, type: 2}
   weakAgainst:

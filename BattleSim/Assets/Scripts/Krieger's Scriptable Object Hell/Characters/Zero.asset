@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1967b69ed0c0754295d81474dff4513, type: 3}
+  m_Name: Zero
+  m_EditorClassIdentifier: 
+  characterName: Zero
+  characterDescription: Indescribable
+  characterIcon: {fileID: 21300000, guid: c116da5cc2a5e4138b0d3a47af5f3c14, type: 3}
+  characterSprite: {fileID: 21300000, guid: e2bb36107b0144f989adc556a5b72ebe, type: 3}
+  characterType: {fileID: 11400000, guid: a56b51011b14dd348a7bab183941421f, type: 2}
+  startingLevel: 1
+  baseHealth: 10
+  baseAttack: 0
+  baseDefense: 0
+  baseSpeed: 0
+  healthGrowth: 0
+  attackGrowth: 0
+  defenseGrowth: 0
+  speedGrowth: 0
+  healthCap: 25
+  attackCap: 25
+  defenseCap: 25
+  speedCap: 25
+  startingMoves:
+  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
+  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
+  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
+  learnableMoves: []

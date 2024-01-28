@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Leaf
   m_EditorClassIdentifier: 
   typeName: Leaf
+  typeColor: {r: 0.25247416, g: 0.6792453, b: 0.2969568, a: 1}
   strongAgainst:
   - {fileID: 11400000, guid: a56b51011b14dd348a7bab183941421f, type: 2}
   weakAgainst:

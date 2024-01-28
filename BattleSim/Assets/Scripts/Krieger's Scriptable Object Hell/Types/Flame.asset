@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Flame
   m_EditorClassIdentifier: 
   typeName: Flame
+  typeColor: {r: 0.9056604, g: 0.50507987, b: 0.27682447, a: 1}
   strongAgainst:
   - {fileID: 11400000, guid: bf2c0370b2c4dac45b808b6307b9ce1c, type: 2}
   weakAgainst:

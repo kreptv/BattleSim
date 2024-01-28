@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1967b69ed0c0754295d81474dff4513, type: 3}
+  m_Name: Koda
+  m_EditorClassIdentifier: 
+  characterName: Koda
+  characterDescription: Pretty poggers
+  characterIcon: {fileID: 21300000, guid: 48bb413f51a9242908e498855afc6e76, type: 3}
+  characterSprite: {fileID: 21300000, guid: 98fcc0fb879dd406f9e6ab399a7ca813, type: 3}
+  characterType: {fileID: 11400000, guid: bf2c0370b2c4dac45b808b6307b9ce1c, type: 2}
+  startingLevel: 1
+  baseHealth: 10
+  baseAttack: 15
+  baseDefense: 1
+  baseSpeed: 0
+  healthGrowth: 0
+  attackGrowth: 0
+  defenseGrowth: 0
+  speedGrowth: 1
+  healthCap: 25
+  attackCap: 25
+  defenseCap: 25
+  speedCap: 25
+  startingMoves:
+  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
+  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
+  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
+  learnableMoves: []

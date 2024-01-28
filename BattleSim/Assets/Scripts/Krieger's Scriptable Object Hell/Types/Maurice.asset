@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Maurice
   m_EditorClassIdentifier: 
   typeName: Maurice
+  typeColor: {r: 0, g: 0, b: 0, a: 1}
   strongAgainst:
   - {fileID: 11400000, guid: d67ecf3982916464b8f86be0f82a3abd, type: 2}
   - {fileID: 11400000, guid: 2fd06d780bb3c074fba41c3f6b782f7c, type: 2}
