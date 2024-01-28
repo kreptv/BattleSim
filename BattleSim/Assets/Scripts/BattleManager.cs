@@ -190,6 +190,7 @@ public class BattleManager : MonoBehaviour
         {
             Debug.Log("Death located");
             StartCoroutine(gameManager.WinBattle());
+            player.LevelUp();
             StopCoroutine (battleCoroutine);
         }
     }
