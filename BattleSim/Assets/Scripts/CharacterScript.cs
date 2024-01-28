@@ -58,19 +58,19 @@ public class CharacterScript : MonoBehaviour
     {
         if(stat == Stat.Attack)
         {
-            atkBoost = Mathf.Min(atkBoost + 1, 6);
+            atkBoost = Mathf.Min(atkBoost + boost, 6);
             return;
         }
 
         if (stat == Stat.Defense)
         {
-            defBoost = Mathf.Min(defBoost + 1, 6);
+            defBoost = Mathf.Min(defBoost + boost, 6);
             return;
         }
 
         if (stat == Stat.Speed)
         {
-            spdBoost = Mathf.Min(spdBoost + 1, 6);
+            spdBoost = Mathf.Min(spdBoost + boost, 6);
             return;
         }
     }

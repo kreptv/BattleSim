@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b40fdf664b17d5e478cd9784435bb3b8, type: 3}
-  m_Name: Leaf Attack
+  m_Name: Boost Atk
   m_EditorClassIdentifier: 
-  moveName: Leaf Attack
-  moveDescription: 'Does a simple attack based on your own element. Somewhat less
-    basic, still not special. '
-  type: {fileID: 11400000, guid: bf2c0370b2c4dac45b808b6307b9ce1c, type: 2}
-  effects: 00000000
+  moveName: Attack Boost
+  moveDescription: Totally not swords dance
+  type: {fileID: 11400000, guid: d67ecf3982916464b8f86be0f82a3abd, type: 2}
+  effects: 01000000
   animTime: 0.1
   animationIndex: 0
-  soundEffect: {fileID: 8300000, guid: 0ffe58326e176457d8a7cbc25fd140cf, type: 3}
-  damagePower: 15
+  soundEffect: {fileID: 8300000, guid: 96298143e688b42e1a9446c854ddd60c, type: 3}
+  damagePower: 0
   statusTarget: 0
   statChanged: 0
-  stagesChanged: 0
+  stagesChanged: 2

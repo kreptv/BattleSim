@@ -92,7 +92,11 @@ public class BattleManager : MonoBehaviour
             // Uses the player's move since the player is faster
             playerActionText = UseMove(player, opponent, playerMove, playerActionText);
             playerActionTextbox.text = playerActionText;
-            MoveAnimationManager.Instance.PlayAnimation(playerMove.type, playerMove.animationIndex, false);
+            if (playerMove.effects.Contains(MoveEffect.Damage))
+            {
+                MoveAnimationManager.Instance.PlayAnimation(playerMove.type, playerMove.animationIndex, false);
+            }
+            
             yield return new WaitForSeconds(baseMoveDelayTime + playerMove.animTime);
             if(CheckForDeath()) { yield break; }
 
@@ -100,7 +104,11 @@ public class BattleManager : MonoBehaviour
             // Then uses the opponents move after waiting for the appropriate delay
             opponentActionText = UseMove(opponent, player, opponentMove, opponentActionText);
             opponentActionTextbox.text = opponentActionText;
-            MoveAnimationManager.Instance.PlayAnimation(opponentMove.type, opponentMove.animationIndex, true);
+            if (opponentMove.effects.Contains(MoveEffect.Damage))
+            {
+                MoveAnimationManager.Instance.PlayAnimation(opponentMove.type, opponentMove.animationIndex, true);
+            }
+
             yield return new WaitForSeconds(baseMoveDelayTime + opponentMove.animTime);
             if (CheckForDeath()) { yield break; }
         }
@@ -108,13 +116,15 @@ public class BattleManager : MonoBehaviour
         {
             opponentActionText = UseMove(opponent, player, opponentMove, opponentActionText);
             opponentActionTextbox.text = opponentActionText;
-            MoveAnimationManager.Instance.PlayAnimation(opponentMove.type, opponentMove.animationIndex, true);
+            if (playerMove.effects.Contains(MoveEffect.Damage))
+                MoveAnimationManager.Instance.PlayAnimation(opponentMove.type, opponentMove.animationIndex, true);
             yield return new WaitForSeconds(baseMoveDelayTime + opponentMove.animTime);
             if (CheckForDeath()) { yield break; }
 
             playerActionText = UseMove(player, opponent, playerMove, playerActionText);
             playerActionTextbox.text = playerActionText;
-            MoveAnimationManager.Instance.PlayAnimation(playerMove.type, playerMove.animationIndex, false);
+            if (opponentMove.effects.Contains(MoveEffect.Damage))
+                MoveAnimationManager.Instance.PlayAnimation(playerMove.type, playerMove.animationIndex, false);
             yield return new WaitForSeconds(baseMoveDelayTime + playerMove.animTime);
             if (CheckForDeath()) { yield break; }
         }
@@ -139,11 +149,11 @@ public class BattleManager : MonoBehaviour
         if (move.effects.Contains(MoveEffect.Damage))
         {
             float effectiveAttack = (float)user.atk * (1.0f + ((float)user.atkBoost / 3.0f));
-            float effectiveDefense = target.def * (1.0f + ((float)target.defBoost / 3f));
+            float effectiveDefense = (float)target.def * (1.0f + ((float)target.defBoost / 3f));
 
-            Debug.Log("Effective attack: " +  effectiveAttack);
+            Debug.Log(target.charSO.characterName + " base defense: " + target.def + "\nEffective defense: " + effectiveDefense);
 
-            float damage = effectiveAttack + move.damagePower / 2f * Mathf.Pow((100f / (100f + effectiveDefense)),2f);
+            float damage = effectiveAttack + move.damagePower / effectiveDefense;
 
             if (move.type.strongAgainst.Contains(target.charSO.characterType))
             {
@@ -158,7 +168,7 @@ public class BattleManager : MonoBehaviour
 
             damage = Mathf.Max(1, damage);
 
-            Debug.Log("Damage: " + (int)damage + "\nEnemy HP: " + target.currentHP);
+            Debug.Log(user.charSO.characterName + " dealing damage: " + (int)damage);
 
             target.currentHP = Mathf.Max((int)target.currentHP - (int)damage, 0);
             // TODO: Play animations
@@ -192,14 +202,12 @@ public class BattleManager : MonoBehaviour
     {
         if(player.currentHP <= 0)
         {
-            Debug.Log("Death located");
             StartCoroutine(gameManager.LoseBattle());
             StopCoroutine(battleCoroutine);
             return true;
         }
         else if(opponent.currentHP <= 0)
         {
-            Debug.Log("Death located");
             StartCoroutine(gameManager.WinBattle());
             player.LevelUp();
             StopCoroutine (battleCoroutine);
@@ -211,7 +219,6 @@ public class BattleManager : MonoBehaviour
     private void SetHealthBars()
     {
         playerHealthBar.fillAmount = (float)player.currentHP / (float)player.hp;
-        Debug.Log("Player health bar fill: " +  playerHealthBar.fillAmount + "\nPlayer health: " + player.currentHP + "/" + player.hp);
         opponentHealthBar.fillAmount = (float)opponent.currentHP / (float)opponent.hp;
     }
 }

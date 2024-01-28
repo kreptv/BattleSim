@@ -18,6 +18,7 @@ MonoBehaviour:
   effects: 0000000001000000
   animTime: 0.1
   animationIndex: 0
+  soundEffect: {fileID: 8300000, guid: 3b67508c4d5e641bc9ae41730547dae6, type: 3}
   damagePower: 50
   statusTarget: 0
   statChanged: 2
