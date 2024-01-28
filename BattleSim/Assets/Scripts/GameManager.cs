@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
         {
             SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.4f, 0.2078432f, 0.2509804f, 1f);
             TransitionScene();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.5f); SceneTransitionAnimator.ResetTrigger("TriggerSceneTransition");
         }
         Debug.Log("Test");
         JustStartingGame = false;
@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator OpenCredits()
     {
         SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.2235294f, 0.2313726f, 0.4392157f, 1f);
-        TransitionScene(); yield return new WaitForSeconds(0.5f);
+        TransitionScene(); yield return new WaitForSeconds(0.5f); SceneTransitionAnimator.ResetTrigger("TriggerSceneTransition");
 
         MenuCanvas.SetActive(false);
         CreditsCanvas.SetActive(true);
@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator OpenCharacterSelectScene()
     {
         SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.3893612f, 0.1984247f, 0.4622642f, 1f);
-        TransitionScene(); yield return new WaitForSeconds(0.5f);
+        TransitionScene(); yield return new WaitForSeconds(0.5f); SceneTransitionAnimator.ResetTrigger("TriggerSceneTransition");
 
         //
 
@@ -514,7 +514,7 @@ public class GameManager : MonoBehaviour
     {
 
         SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.4528302f, 0.3073124f, 0.2029192f, 1f);
-        TransitionScene(); yield return new WaitForSeconds(0.5f);
+        TransitionScene(); yield return new WaitForSeconds(0.5f); SceneTransitionAnimator.ResetTrigger("TriggerSceneTransition");
         YouLostCanvas.SetActive(true);
         yield return null;
     }
@@ -524,7 +524,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator WinBattle()
     {
         SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.1618904f, 0.3207547f, 0.1618904f, 1f);
-        TransitionScene(); yield return new WaitForSeconds(0.5f);
+        TransitionScene(); yield return new WaitForSeconds(0.5f); SceneTransitionAnimator.ResetTrigger("TriggerSceneTransition");
         // UNLOCK NEW CHARACTERS //
 
         PlayerProgression++;
