@@ -3683,13 +3683,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -3788,6 +3788,9 @@ MonoBehaviour:
   battle5: {fileID: 8300000, guid: 93ebcbd2e7c95406983711d2e40699f0, type: 3}
   battle6: {fileID: 8300000, guid: 1d818ce96b60144df855e48510901dde, type: 3}
   menu: {fileID: 8300000, guid: ebbd1d802117149b8aa02bd5f87225d2, type: 3}
+  ass2: {fileID: 1645240937}
+  retro5: {fileID: 8300000, guid: 7a5dcebb5fd5e410dad2e776f3ecb41f, type: 3}
+  retro8: {fileID: 8300000, guid: 231091b40daab4c26b5db981c55ff37c, type: 3}
 --- !u!1 &809741107
 GameObject:
   m_ObjectHideFlags: 0
@@ -7099,17 +7102,16 @@ MonoBehaviour:
 
     Krepta did UI and character art
 
-    Nate
-    crunched the battle calculations
+    Zero
+    did character descriptions & pixel animations
 
-    Zero did character descriptions & pixel
-    animations
+    Nate bought us pizza
 
-    music clips provided under CC license by xDeviruchi
+    Music
+    by xDeviruchi & sound effects by Nathan Gibson
 
 
-    (c)
-    UTULSA Furry Club'
+    (c) UTULSA Furry Club'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dbba5f78265df40ce8c3fcb5d0434a0a, type: 2}
   m_sharedMaterial: {fileID: -6691282605768980804, guid: dbba5f78265df40ce8c3fcb5d0434a0a, type: 2}
@@ -8304,6 +8306,21 @@ MonoBehaviour:
   GeneralBattlePanel: {fileID: 84301314}
   AttackBattlePanel: {fileID: 1505566170}
   EmptyBattlePanel: {fileID: 629837994}
+  BattleSceneBG: {fileID: 1163570328}
+  BattleSceneBGArray:
+  - {fileID: 21300000, guid: d518d6a493c074e0d9761bb846bc72e5, type: 3}
+  - {fileID: 21300000, guid: 70416b769c4874ad58f03f24c503d840, type: 3}
+  - {fileID: 21300000, guid: b345672b1e1b9445d8e54397417a5b71, type: 3}
+  - {fileID: 21300000, guid: 7caffdcbeb8b24dbf95a38e78dd3e2e6, type: 3}
+  - {fileID: 21300000, guid: c5191e46401bf4293a8d29e49324f182, type: 3}
+  - {fileID: 21300000, guid: f063bab01fd534fdeaf254b1bf5e2b3e, type: 3}
+  - {fileID: 21300000, guid: 895cba628cd3542af92da653cb5f239a, type: 3}
+  - {fileID: 21300000, guid: 2876fe3d2432f4e7c8293bab161feca5, type: 3}
+  - {fileID: 21300000, guid: 7a143bd568b924f6fab8b63594957702, type: 3}
+  - {fileID: 21300000, guid: 2ca6609ffbcba4719bfa21cb5da45859, type: 3}
+  - {fileID: 21300000, guid: 229be3930e033440cb69e5b822748165, type: 3}
+  - {fileID: 21300000, guid: 1c2a36697b4984ff9a0a3c695766a4e4, type: 3}
+  - {fileID: 21300000, guid: c4baf168729c54a2a9e991e19649ac20, type: 3}
   YouLostCanvas: {fileID: 851125621}
   YouWinCanvas: {fileID: 176658483}
   LevelUpCanvas: {fileID: 1936212329}
@@ -9958,7 +9975,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

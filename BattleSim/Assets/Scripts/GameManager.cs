@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     public CharacterScript ActiveCharacter;
     private int ActiveCharacterIndex;
     public CharacterScript EnemyCharacter;
+    private int EnemyCharacterIndex;
     public int PlayerProgression = 0;
 
     // CHARACTER SELECT SCENE UI  //
@@ -79,6 +80,9 @@ public class GameManager : MonoBehaviour
     public GameObject GeneralBattlePanel;
     public GameObject AttackBattlePanel;
     public GameObject EmptyBattlePanel;
+
+    public Image BattleSceneBG;
+    public Sprite[] BattleSceneBGArray;
 
     // BATTLE SCENE UI  //
 
@@ -148,6 +152,7 @@ public class GameManager : MonoBehaviour
     {
         if (!JustStartingGame)
         {
+            am.DoubleDing();
             SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.4f, 0.2078432f, 0.2509804f, 1f);
             TransitionScene();
             yield return new WaitForSeconds(0.5f); SceneTransitionAnimator.ResetTrigger("TriggerSceneTransition");
@@ -168,6 +173,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator OpenCredits()
     {
+        am.DoubleDing();
         SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.2235294f, 0.2313726f, 0.4392157f, 1f);
         TransitionScene(); yield return new WaitForSeconds(0.5f); SceneTransitionAnimator.ResetTrigger("TriggerSceneTransition");
 
@@ -181,6 +187,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator OpenCharacterSelectScene()
     {
+        am.DoubleDing();
         am.CharacterSelectSceneOpened();
         SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.3893612f, 0.1984247f, 0.4622642f, 1f);
         TransitionScene(); yield return new WaitForSeconds(0.5f); SceneTransitionAnimator.ResetTrigger("TriggerSceneTransition");
@@ -215,6 +222,8 @@ public class GameManager : MonoBehaviour
 
         }
 
+        CSSPreview(Characters[0], 0); //start with rahdy selected
+
         yield return null;
 
     }
@@ -222,6 +231,7 @@ public class GameManager : MonoBehaviour
 
     public void CSSPreview(CharacterScript character, int index)
     {
+        am.SingleDing();
 
         CharacterNameCSS.text = character.charSO.characterName;
         DescriptionTextCSS.text = character.charSO.characterDescription;
@@ -239,6 +249,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator InitiateBattleScene()
     {
+        am.DoubleDing();
         am.BattleSceneOpened();
         SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.1132075f, 0.06354573f, 0.1102862f, 1f);
         TransitionScene(); yield return new WaitForSeconds(0.5f);
@@ -270,7 +281,7 @@ public class GameManager : MonoBehaviour
 
     public void OpenAttackMenu()
     {
-
+        am.SingleDing();
         //
         //
 
@@ -320,46 +331,45 @@ public class GameManager : MonoBehaviour
         if (PlayerProgression == 0)
         {
             int myRand = UnityEngine.Random.Range(0, 2);
-            Debug.Log(myRand);
 
             switch (ActiveCharacterIndex)
             {
                 case 0:
                     if (myRand == 0)
                     {
-                        EnemyCharacter = Characters[1];
+                        EnemyCharacter = Characters[1]; EnemyCharacterIndex = 1;
                     }
                     else if (myRand == 1)
                     {
-                        EnemyCharacter = Characters[2];
+                        EnemyCharacter = Characters[2]; EnemyCharacterIndex = 2;
                     }
                     break;
 
                 case 1:
                     if (myRand == 0)
                     {
-                        EnemyCharacter = Characters[0];
+                        EnemyCharacter = Characters[0]; EnemyCharacterIndex = 0;
                     }
                     else if (myRand == 1)
                     {
-                        EnemyCharacter = Characters[2];
+                        EnemyCharacter = Characters[2]; EnemyCharacterIndex = 2;
                     }
                     break;
 
                 case 2:
                     if (myRand == 0)
                     {
-                        EnemyCharacter = Characters[0];
+                        EnemyCharacter = Characters[0]; EnemyCharacterIndex = 0;
                     }
                     else if (myRand == 1)
                     {
-                        EnemyCharacter = Characters[1];
+                        EnemyCharacter = Characters[1]; EnemyCharacterIndex = 1;
                     }
                     break;
 
                 default:
                     myRand = UnityEngine.Random.Range(0, 3);
-                    EnemyCharacter = Characters[myRand];
+                    EnemyCharacter = Characters[myRand]; EnemyCharacterIndex = myRand;
                     break;
             }
 
@@ -375,39 +385,39 @@ public class GameManager : MonoBehaviour
                 case 3:
                     if (myRand == 0)
                     {
-                        EnemyCharacter = Characters[4];
+                        EnemyCharacter = Characters[4]; EnemyCharacterIndex = 4;
                     }
                     else if (myRand == 1)
                     {
-                        EnemyCharacter = Characters[5];
+                        EnemyCharacter = Characters[5]; EnemyCharacterIndex = 5;
                     }
                     break;
 
                 case 4:
                     if (myRand == 0)
                     {
-                        EnemyCharacter = Characters[3];
+                        EnemyCharacter = Characters[3]; EnemyCharacterIndex = 3;
                     }
                     else if (myRand == 1)
                     {
-                        EnemyCharacter = Characters[5];
+                        EnemyCharacter = Characters[5]; EnemyCharacterIndex = 5;
                     }
                     break;
 
                 case 5:
                     if (myRand == 0)
                     {
-                        EnemyCharacter = Characters[3];
+                        EnemyCharacter = Characters[3]; EnemyCharacterIndex = 3;
                     }
                     else if (myRand == 1)
                     {
-                        EnemyCharacter = Characters[4];
+                        EnemyCharacter = Characters[4]; EnemyCharacterIndex = 4;
                     }
                     break;
 
                 default:
                     myRand = UnityEngine.Random.Range(0, 3);
-                    EnemyCharacter = Characters[myRand + 3];
+                    EnemyCharacter = Characters[myRand + 3]; EnemyCharacterIndex = myRand+3;
                     break;
             }
 
@@ -423,39 +433,39 @@ public class GameManager : MonoBehaviour
                 case 6:
                     if (myRand == 0)
                     {
-                        EnemyCharacter = Characters[7];
+                        EnemyCharacter = Characters[7]; EnemyCharacterIndex = 7;
                     }
                     else if (myRand == 1)
                     {
-                        EnemyCharacter = Characters[8];
+                        EnemyCharacter = Characters[8]; EnemyCharacterIndex = 8;
                     }
                     break;
 
                 case 7:
                     if (myRand == 0)
                     {
-                        EnemyCharacter = Characters[6];
+                        EnemyCharacter = Characters[6]; EnemyCharacterIndex = 6;
                     }
                     else if (myRand == 1)
                     {
-                        EnemyCharacter = Characters[8];
+                        EnemyCharacter = Characters[8]; EnemyCharacterIndex = 8;
                     }
                     break;
 
                 case 8:
                     if (myRand == 0)
                     {
-                        EnemyCharacter = Characters[6];
+                        EnemyCharacter = Characters[6]; EnemyCharacterIndex = 6;
                     }
                     else if (myRand == 1)
                     {
-                        EnemyCharacter = Characters[7];
+                        EnemyCharacter = Characters[7]; EnemyCharacterIndex = 7;
                     }
                     break;
 
                 default:
                     myRand = UnityEngine.Random.Range(0, 3);
-                    EnemyCharacter = Characters[myRand + 6];
+                    EnemyCharacter = Characters[myRand + 6]; EnemyCharacterIndex = myRand+6;
                     break;
             }
 
@@ -471,39 +481,39 @@ public class GameManager : MonoBehaviour
                 case 9:
                     if (myRand == 0)
                     {
-                        EnemyCharacter = Characters[10];
+                        EnemyCharacter = Characters[10]; EnemyCharacterIndex = 10;
                     }
                     else if (myRand == 1)
                     {
-                        EnemyCharacter = Characters[11];
+                        EnemyCharacter = Characters[11]; EnemyCharacterIndex = 11;
                     }
                     break;
 
                 case 10:
                     if (myRand == 0)
                     {
-                        EnemyCharacter = Characters[9];
+                        EnemyCharacter = Characters[9]; EnemyCharacterIndex = 9;
                     }
                     else if (myRand == 1)
                     {
-                        EnemyCharacter = Characters[11];
+                        EnemyCharacter = Characters[11]; EnemyCharacterIndex = 11;
                     }
                     break;
 
                 case 11:
                     if (myRand == 0)
                     {
-                        EnemyCharacter = Characters[9];
+                        EnemyCharacter = Characters[9]; EnemyCharacterIndex = 9;
                     }
                     else if (myRand == 1)
                     {
-                        EnemyCharacter = Characters[10];
+                        EnemyCharacter = Characters[10]; EnemyCharacterIndex = 10;
                     }
                     break;
 
                 default:
                     myRand = UnityEngine.Random.Range(0, 3);
-                    EnemyCharacter = Characters[myRand + 9];
+                    EnemyCharacter = Characters[myRand + 9]; EnemyCharacterIndex = myRand+9;
                     break;
             }
 
@@ -512,8 +522,11 @@ public class GameManager : MonoBehaviour
         if (PlayerProgression == 4)
         {
             EnemyCharacter = Characters[12]; // Maurice
+            EnemyCharacterIndex = 12;
 
         }
+
+        BattleSceneBG.sprite = BattleSceneBGArray[EnemyCharacterIndex];
 
 
 
@@ -521,7 +534,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator LoseBattle()
     {
-
+        am.EndOfRoundSceneOpened();
         SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.4528302f, 0.3073124f, 0.2029192f, 1f);
         TransitionScene(); yield return new WaitForSeconds(0.5f); SceneTransitionAnimator.ResetTrigger("TriggerSceneTransition");
         YouLostCanvas.SetActive(true);
@@ -532,6 +545,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator WinBattle()
     {
+        am.EndOfRoundSceneOpened();
         SceneTransitionAnimator.gameObject.GetComponent<Image>().color = new Color(0.1618904f, 0.3207547f, 0.1618904f, 1f);
         TransitionScene(); yield return new WaitForSeconds(0.5f); SceneTransitionAnimator.ResetTrigger("TriggerSceneTransition");
         // UNLOCK NEW CHARACTERS //

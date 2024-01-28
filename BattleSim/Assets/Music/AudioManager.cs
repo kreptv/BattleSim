@@ -11,18 +11,32 @@ public class AudioManager : MonoBehaviour
     public AudioSource ass;
 
     public AudioClip battle1;
-
     public AudioClip battle2;
-
     public AudioClip battle3;
-
     public AudioClip battle4;
-
     public AudioClip battle5;
-
     public AudioClip battle6;
-
     public AudioClip menu;
+
+    public AudioSource ass2;
+
+    public AudioClip retro5;
+    public AudioClip retro8;
+
+
+    public void SingleDing()
+    {
+            ass2.clip = retro5;
+            ass2.Play();
+
+    }
+    public void DoubleDing()
+    {
+            ass2.clip = retro8;
+            ass2.Play();
+
+    }
+
 
 
     public void MenuSceneOpened()
