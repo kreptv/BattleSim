@@ -101,6 +101,8 @@ public class GameManager : MonoBehaviour
     public Animator SceneTransitionAnimator;
     // ANIMATOR REFERENCES //
 
+    public AudioClip theAlmightyOnesTaunt;
+
     private bool JustStartingGame = true;
 
     public AudioManager am;
@@ -523,6 +525,8 @@ public class GameManager : MonoBehaviour
         {
             EnemyCharacter = Characters[12]; // Maurice
             EnemyCharacterIndex = 12;
+            am.ass2.clip = theAlmightyOnesTaunt;
+            am.ass2.Play();
 
         }
 
