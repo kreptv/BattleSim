@@ -121,6 +121,10 @@ public class GameManager : MonoBehaviour
 
         }
 
+        Characters[12] = CharacterButtonsCSS[12].gameObject.GetComponent<CharacterScript>();
+
+
+
         GoButtonCSS.onClick.AddListener(delegate { StartCoroutine(InitiateBattleScene()); });
 
         AttackButton.onClick.AddListener(OpenAttackMenu);
@@ -552,7 +556,7 @@ public class GameManager : MonoBehaviour
         }
         else if (PlayerProgression == 3)
         {
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 12; i++)
             {
                 Characters[i].isLocked = false;
             }
