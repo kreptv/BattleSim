@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: Cosmos
   m_EditorClassIdentifier: 
   characterName: Cosmos
-  characterDescription: Indescribable
+  characterDescription: "Cosmos is a real star \u2013 or at least that\u2019s what
+    he says. Interestingly, he appears to be a half-lion half-tiger creature with
+    two tails, perhaps one from each half. Cosmos comes from the stars of space;
+    some believe his parents are constellations, some believe he\u2019s a magic creation
+    of earth, and others believe he\u2019s just a dedicated LARPer. Being a liger,
+    he is always the \"mane\" event in battle and really \"earns his stripes.\" His
+    favorite things include tinkering with technology, solving puzzles, sushi, and
+    telling dad jokes, such as that last line which he insisted we include in his
+    description. Sorry. "
   characterIcon: {fileID: 21300000, guid: 238724dcba8f04266886f528950af944, type: 3}
   characterSprite: {fileID: 21300000, guid: d19b5b4d12b534c83880b4be7c36ec85, type: 3}
   characterType: {fileID: 11400000, guid: a56b51011b14dd348a7bab183941421f, type: 2}

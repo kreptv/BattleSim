@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: Lilly & Flynn
   m_EditorClassIdentifier: 
   characterName: Lilly & Flynn
-  characterDescription: Indescribable
+  characterDescription: "Lilly and Flynn are a pair of birds that cannot be separated,
+    no matter what. No, we aren\u2019t lying. They were cursed by a wizard for their
+    hubris when they tried to steal his magic. Anyways, the two birds function super
+    well as a team, especially in combat. However, they do bicker quite a bit, and
+    over the most pointless subjects. Lilly has to constantly hold Flynn back with
+    a leash to keep her focused on anything, otherwise she'll go on some tangent
+    about space or rocks or something. "
   characterIcon: {fileID: 21300000, guid: d38d1723705b74f818201d4792a45eb9, type: 3}
   characterSprite: {fileID: 21300000, guid: 2fb37ec9f58544db4a1fd30e119018d8, type: 3}
   characterType: {fileID: 11400000, guid: bf2c0370b2c4dac45b808b6307b9ce1c, type: 2}

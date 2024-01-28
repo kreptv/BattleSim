@@ -13,7 +13,14 @@ MonoBehaviour:
   m_Name: Felix
   m_EditorClassIdentifier: 
   characterName: Felix
-  characterDescription: Indescribable
+  characterDescription: "Son of a billionaire author, Felix has always had a comfortable
+    life. As such, he struggles to understand people don't just use money to fix
+    their problems. \u201CWhy do you need to plan to clean your house? Can\u2019t
+    the maid just do it?\u201D is a common type of sentence to hear from him. Combining
+    this with being a rather small snow fox, you would think he would get bullied
+    quite frequently, but Felix never attended school, and studied at home. Felix
+    is also quite introverted and shy, which made getting this info out of him quite
+    the challenge. "
   characterIcon: {fileID: 21300000, guid: 7cf5d5f6210d94801a165a5a81166243, type: 3}
   characterSprite: {fileID: 21300000, guid: 1f9c8d8cc36e54d78a6c38785f0e3777, type: 3}
   characterType: {fileID: 11400000, guid: a56b51011b14dd348a7bab183941421f, type: 2}

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40fdf664b17d5e478cd9784435bb3b8, type: 3}
+  m_Name: Moist Attack
+  m_EditorClassIdentifier: 
+  moveName: Moist Attack
+  moveDescription: 'Does a simple attack based on your own element. Somewhat less
+    basic, still not special. '
+  type: {fileID: 11400000, guid: a56b51011b14dd348a7bab183941421f, type: 2}
+  effects: 00000000
+  animTime: 0.1
+  animationIndex: 0
+  damagePower: 15
+  statusTarget: 0
+  statChanged: 0
+  stagesChanged: 0

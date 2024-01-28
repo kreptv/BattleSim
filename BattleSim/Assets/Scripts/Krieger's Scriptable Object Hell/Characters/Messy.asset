@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Messy
   m_EditorClassIdentifier: 
   characterName: Messy
-  characterDescription: Indescribable
+  characterDescription: "Messy, as you can probably guess, is pretty gross. His whole
+    existence can be summed up with one simple word: Trash. His home? Covered in
+    it. His diet? There\u2019s nothing healthy in there. Honestly, Messy could live
+    in a dumpster if he needed to. Despite his lack of cleanliness, he is a major
+    advocate for improvement of major health programs all across the world. We don\u2019t
+    know why this is. "
   characterIcon: {fileID: 21300000, guid: 41f8e91ab0f13418695a95bd18b6cf92, type: 3}
   characterSprite: {fileID: 21300000, guid: 4ab164bf0ea5e42f7886a5225152a5b7, type: 3}
   characterType: {fileID: 11400000, guid: 2fd06d780bb3c074fba41c3f6b782f7c, type: 2}

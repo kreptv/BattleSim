@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Koda
   m_EditorClassIdentifier: 
   characterName: Koda
-  characterDescription: Pretty poggers
+  characterDescription: "Koda is a very tired little guy. Despite the only action
+    they are known to do is steal eggs from poor people, they get pretty tired. Usually
+    he needs to actually get told to sleep when he is tired, otherwise he will stay
+    up all night and crash at 2pm in the middle of a conversation. If gentle suggestion
+    doesn\u2019t work, whack him with a crowbar, and he will be up and fresh in the
+    morning! "
   characterIcon: {fileID: 21300000, guid: 48bb413f51a9242908e498855afc6e76, type: 3}
   characterSprite: {fileID: 21300000, guid: 98fcc0fb879dd406f9e6ab399a7ca813, type: 3}
   characterType: {fileID: 11400000, guid: bf2c0370b2c4dac45b808b6307b9ce1c, type: 2}
