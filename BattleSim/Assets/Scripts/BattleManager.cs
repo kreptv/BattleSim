@@ -117,14 +117,20 @@ public class BattleManager : MonoBehaviour
             opponentActionText = UseMove(opponent, player, opponentMove, opponentActionText);
             opponentActionTextbox.text = opponentActionText;
             if (playerMove.effects.Contains(MoveEffect.Damage))
+            {
                 MoveAnimationManager.Instance.PlayAnimation(opponentMove.type, opponentMove.animationIndex, true);
+            }
+                
             yield return new WaitForSeconds(baseMoveDelayTime + opponentMove.animTime);
             if (CheckForDeath()) { yield break; }
 
             playerActionText = UseMove(player, opponent, playerMove, playerActionText);
             playerActionTextbox.text = playerActionText;
             if (opponentMove.effects.Contains(MoveEffect.Damage))
+            {
                 MoveAnimationManager.Instance.PlayAnimation(playerMove.type, playerMove.animationIndex, false);
+            }
+                
             yield return new WaitForSeconds(baseMoveDelayTime + playerMove.animTime);
             if (CheckForDeath()) { yield break; }
         }

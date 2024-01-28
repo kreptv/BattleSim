@@ -32,6 +32,6 @@ MonoBehaviour:
   speedCap: 80
   startingMoves:
   - {fileID: 11400000, guid: 92ec64a66cd7f134a998986967c57174, type: 2}
-  - {fileID: 11400000, guid: 81405257be55dd343820eda23d162d2e, type: 2}
+  - {fileID: 11400000, guid: 5e3a435a4eee29342bf589ae837df00c, type: 2}
   - {fileID: 11400000, guid: ec7a47ac892737749916a6ee18b73b56, type: 2}
   learnableMoves: []
