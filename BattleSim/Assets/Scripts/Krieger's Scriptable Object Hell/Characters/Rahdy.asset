@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Rahdy
   m_EditorClassIdentifier: 
   characterName: Rahdy
-  characterDescription: Indescribable
+  characterDescription: "Rahdy has one true love in his life: automobiles. He\u2019s
+    absolutely smitten with anything that has 4 wheels and depletes unrenewable resources.
+    However, despite this love, he absolutely despises the famous movie series based
+    on talking cars. He claims that they \u201Cfrequently get the most basic facts
+    about cars wrong.\u201D Yeah, sure buddy, we\u2019ll listen to you rant about
+    a child\u2019s movie series. We care. "
   characterIcon: {fileID: 21300000, guid: 5693a4a55fd2b4a2384b799a986f86ce, type: 3}
   characterSprite: {fileID: 21300000, guid: ba34667ec1f4042db84d94cfd3ded407, type: 3}
   characterType: {fileID: 11400000, guid: a56b51011b14dd348a7bab183941421f, type: 2}

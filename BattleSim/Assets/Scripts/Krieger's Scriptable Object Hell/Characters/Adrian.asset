@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Adrian
   m_EditorClassIdentifier: 
   characterName: Adrian
-  characterDescription: Indescribable
+  characterDescription: "Adrain is kind of a moron. He\u2019s a dog, but he\u2019s
+    certain he\u2019s secretly a wolf. If you listen at night, you can hear him howl
+    off-key at the moon. If he\u2019s not busy pretending to be a wolf, he\u2019s
+    embarrassing himself at a party. Did you know that he can eat about 47 baby carrots
+    before throwing up? Well, he figured that out on a dare. Who gave him that dare?
+    He did. Himself. "
   characterIcon: {fileID: 21300000, guid: 2f2269a66adc341d4a67fc8db67038b6, type: 3}
   characterSprite: {fileID: 21300000, guid: aaacf6c6cd82244238bc5c29f0f3a25f, type: 3}
   characterType: {fileID: 11400000, guid: 2fd06d780bb3c074fba41c3f6b782f7c, type: 2}

@@ -13,7 +13,14 @@ MonoBehaviour:
   m_Name: Hadrian
   m_EditorClassIdentifier: 
   characterName: Hadrian
-  characterDescription: Indescribable
+  characterDescription: "Hadrian is the epitome of dragon kind, that is, he\u2019s
+    a walking stereotype of his species. He lives in a cycle of sleeping, eating,
+    and studying in his cave \u2013 often to the terror of the nearby villages in
+    the process. Very young. not even 1000 years old, and he already has the vibes
+    of an angry grandfather kicking the local neighborhood younglings off of his
+    yard for daring to play a measly game of catch. Some centuries back a knight
+    took his eye in an attempt to be another St. George. That did not work out for
+    them well. "
   characterIcon: {fileID: 21300000, guid: 0ce7aa7a076ef480f810ffd712852a29, type: 3}
   characterSprite: {fileID: 21300000, guid: 4ad19d91ecc5c4174b59162c6bb3cb65, type: 3}
   characterType: {fileID: 11400000, guid: 2fd06d780bb3c074fba41c3f6b782f7c, type: 2}

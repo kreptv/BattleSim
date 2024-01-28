@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Skoryx
   m_EditorClassIdentifier: 
   characterName: Skoryx
-  characterDescription: Indescribable
+  characterDescription: "Skoryx, as the name implies, is an oryx. Don\u2019t know
+    what that is? Yeah, we didn\u2019t either. Turns out it\u2019s this antelope
+    looking thing. Anyways Skoryx is known to be a pretty dedicated artist, painting
+    great art pieces such as the Mona Lisa and Starry Night. Either that or he plagiarized
+    them. He does not appreciate it when people skewer food onto his horns like a
+    kebab. He does enjoy the free food afterwards, though. "
   characterIcon: {fileID: 21300000, guid: 70dbff974f692462d9c75b5fe68e31b4, type: 3}
   characterSprite: {fileID: 21300000, guid: 092f1ae738c824760b07453c5e36f91d, type: 3}
   characterType: {fileID: 11400000, guid: a56b51011b14dd348a7bab183941421f, type: 2}
