@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b40fdf664b17d5e478cd9784435bb3b8, type: 3}
   m_Name: Boost Spd
   m_EditorClassIdentifier: 
-  moveName: Attack Boost
-  moveDescription: Totally not swords dance
+  moveName: Speed Boost
+  moveDescription: Totally not agility
   type: {fileID: 11400000, guid: d67ecf3982916464b8f86be0f82a3abd, type: 2}
   effects: 01000000
   animTime: 0.1
@@ -21,5 +21,5 @@ MonoBehaviour:
   soundEffect: {fileID: 8300000, guid: 96298143e688b42e1a9446c854ddd60c, type: 3}
   damagePower: 0
   statusTarget: 0
-  statChanged: 0
+  statChanged: 2
   stagesChanged: 2

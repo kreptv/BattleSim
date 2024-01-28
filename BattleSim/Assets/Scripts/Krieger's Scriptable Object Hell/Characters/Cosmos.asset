@@ -41,5 +41,5 @@ MonoBehaviour:
   startingMoves:
   - {fileID: 11400000, guid: 81405257be55dd343820eda23d162d2e, type: 2}
   - {fileID: 11400000, guid: c586a6407b528f64cbc71185562a52f5, type: 2}
-  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
+  - {fileID: 11400000, guid: 35d4afecd720fdf42bed529eed257984, type: 2}
   learnableMoves: []

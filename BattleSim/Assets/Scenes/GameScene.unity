@@ -8328,6 +8328,7 @@ MonoBehaviour:
   FromWinSceneToCharacterSelectionButton: {fileID: 178787771}
   FromLevelUpToCharacterSelectionButton: {fileID: 913028587}
   SceneTransitionAnimator: {fileID: 305064439}
+  theAlmightyOnesTaunt: {fileID: 8300000, guid: 33e2b0111c003458e82a2a290cc3e1c9, type: 3}
   am: {fileID: 703452890}
 --- !u!1 &1505566170
 GameObject:
