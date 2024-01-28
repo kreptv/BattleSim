@@ -36,7 +36,7 @@ MonoBehaviour:
   defenseCap: 25
   speedCap: 25
   startingMoves:
-  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
-  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
+  - {fileID: 11400000, guid: 81405257be55dd343820eda23d162d2e, type: 2}
+  - {fileID: 11400000, guid: daec9a55f124bed4dba00695034a4b75, type: 2}
   - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
   learnableMoves: []

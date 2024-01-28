@@ -21,7 +21,7 @@ MonoBehaviour:
     kebab. He does enjoy the free food afterwards, though. "
   characterIcon: {fileID: 21300000, guid: 70dbff974f692462d9c75b5fe68e31b4, type: 3}
   characterSprite: {fileID: 21300000, guid: 092f1ae738c824760b07453c5e36f91d, type: 3}
-  characterType: {fileID: 11400000, guid: a56b51011b14dd348a7bab183941421f, type: 2}
+  characterType: {fileID: 11400000, guid: bf2c0370b2c4dac45b808b6307b9ce1c, type: 2}
   startingLevel: 1
   baseHealth: 10
   baseAttack: 1
@@ -36,7 +36,7 @@ MonoBehaviour:
   defenseCap: 25
   speedCap: 25
   startingMoves:
-  - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
+  - {fileID: 11400000, guid: 81405257be55dd343820eda23d162d2e, type: 2}
   - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
   - {fileID: 11400000, guid: c307425846f8048459c61f4882faf864, type: 2}
   learnableMoves: []
